@@ -1,8 +1,8 @@
 function SmallProduct() {
   return (
     <>
-      <div class="small-product" id="small-product">
-        <div class="scroll">
+      <div class="tom-small-product" id="small-product">
+        <div class="tom-scroll">
           <div>
             <img src="http://localhost:3001/img/1.jpg" alt="" />
           </div>

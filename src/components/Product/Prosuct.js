@@ -6,8 +6,8 @@ import Big from './big'
 function Product() {
   return (
     <>
-      <div class="product">
-        <div class="product-main">
+      <div class="tom-product">
+        <div class="tom-product-main">
           <Big imgUrl="http://localhost:3001/img/2.jpg" />
           <img src="http://localhost:3001/img/2.jpg" alt="" />
           <img src="http://localhost:3001/img/3.jpg" alt="" />

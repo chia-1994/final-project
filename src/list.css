@@ -1,7 +1,6 @@
 html {
-  /* font-size: 12px; */
   color: #707070;
-  /* font-family: 'Noto Serif TC', serif; */
+  font-family: 'Noto Serif TC', serif;
 }
 
 * {
@@ -63,12 +62,11 @@ header ul li:last-child {
 }
 
 main {
-  margin: 0 auto;
   width: 80vw;
   display: flex;
 }
 
-.article {
+.tom-article {
   border-top: 2px solid #a8de82;
   font-size: 18px;
   letter-spacing: 2px;
@@ -78,32 +76,32 @@ main {
   padding: 15px 0;
   width: 80%;
 }
-.th-ic {
+.tom-th-ic {
   margin-top: 20px;
 }
-.th-ic img {
+.tom-th-ic img {
   width: 80px;
 }
-.product {
+.tom-product {
   width: 50vw;
 
   position: relative;
 }
-.product-title {
+.tom-product-title {
   color: #707070;
   margin-top: 3px;
   font-size: 25px;
 }
-.ml {
+.tom-ml {
   font-size: 12px;
 }
-.product-main img {
-  width: 45vw;
+.tom-product-main img {
+  width: 40vw;
 
   object-fit: cover;
 }
 
-.small-product {
+.tom-small-product {
   height: 100;
 
   position: absolute;
@@ -111,12 +109,12 @@ main {
   left: 0;
 }
 
-.small-product img {
+.tom-small-product img {
   width: 84px;
   height: 90px;
   display: block;
 }
-.count {
+.tom-count {
   display: flex;
 
   width: 100%;
@@ -125,27 +123,28 @@ main {
 
   vertical-align: bottom;
 }
-.sel {
+.tom-sel {
   height: 30px;
   width: 100px;
   border: 1px solid #ddead7;
   margin-right: 15px;
 }
 
-.price {
+.tom-price {
   font-size: 20px;
   margin-top: 20px;
 }
 
-.ar-title {
+.tom-ar-title {
   margin-top: 25px;
   margin-bottom: 10px;
   font-size: 20px;
 }
-ol {
+.tom ol {
   font-size: 15px;
+  padding-bottom: 10px;
 }
-.add-shop {
+.tom-add-shop {
   display: flex;
   width: 150px;
   height: 30px;
@@ -156,32 +155,30 @@ ol {
 
   background-color: #ddead7;
 }
-ol {
-  padding-bottom: 10px;
-}
-.number {
+
+.tom-number {
   display: inline-block;
   background-color: #ddead7;
 }
 
-.sy {
+.tom-sy {
   font-weight: lighter;
   letter-spacing: 5px;
   font-size: 18px;
 }
 
 /* 右邊的部分 */
-.Introduction {
+.tom-Introduction {
   width: 30vw;
   position: relative;
   margin-top: 70px;
 }
-.title-top {
+.tom-title-top {
   display: flex;
   width: 80%;
   justify-content: space-between;
 }
-.star-top img {
+.tom-star-top img {
   width: 20px;
   padding-bottom: 5px;
 }
@@ -192,14 +189,14 @@ ol {
   border-radius: 30px;
   display: flex;
 } */
-.buy span {
+.tom-buy span {
   text-align: center;
   width: 100%;
   display: inline-block;
   font-size: 1.4rem;
   align-self: center;
 }
-.container {
+.tom-container {
   font-weight: lighter;
   letter-spacing: 5px;
   line-height: 1.5;
@@ -210,39 +207,39 @@ ol {
 }
 
 /* 規格 */
-.small-title {
+.tom-small-title {
   margin-bottom: 40px;
   margin: 40px 0px;
 
   font-size: 18px;
 }
-.about {
+.tom-about {
   font-size: 18px;
 }
-.under-Description {
+.tom-under-Description {
   width: 80vw;
   height: 250px;
 
   margin: 20px auto;
 }
 
-.small-p {
+.tom-small-p {
   width: 22vw;
   height: 250px;
 }
-.small-p img {
+.tom-small-p img {
   width: 22vw;
   height: 100%;
   object-fit: cover;
 }
-.under-Description {
+.tom-under-Description {
   display: flex;
   margin-top: 150px;
 }
-.product-Description {
+.tom-product-Description {
   display: flex;
 }
-.pd {
+.tom-pd {
   width: 25vw;
 
   font-size: 18px;
@@ -251,50 +248,50 @@ ol {
   line-height: 1.5;
   margin-left: 100px;
 }
-.user-mur {
+.tom-user-mur {
   width: 80vw;
   border-bottom: 2px solid #ddead7;
   margin: 0 auto;
 }
-.lev {
+.tom-lev {
   display: flex;
   width: 30vw;
   justify-content: center;
   padding-bottom: 50px;
   margin-top: 50px;
 }
-.lev img {
+.tom-lev img {
   width: 15px;
 }
 
-.left {
+.tom-left {
   border-right: 2px solid #ddead7;
   padding-right: 50px;
 }
-.porfile {
+.tom-porfile {
   display: flex;
 }
-.photo {
+.tom-photo {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: #ddead7;
 }
-.name {
+.tom-name {
   height: 30px;
   font-size: 14px;
   padding-left: 5px;
   line-height: 30px;
 }
-.murmur {
+.tom-murmur {
   width: 80vw;
   padding-top: 10px;
   margin: 0 auto;
 }
-.star img {
+.tom-star img {
   width: 15px;
 }
-.murmurff {
+.tom-murmurff {
   margin-top: 30px;
   padding-bottom: 20px;
   font-size: 16px;
@@ -302,18 +299,18 @@ ol {
   word-spacing: 2px;
   line-height: 1.5;
 }
-.mur-bottom {
+.tom-mur-bottom {
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
-.mur-bottom img {
+.tom-mur-bottom img {
   width: 20px;
 }
-.mur-right {
+.tom-mur-right {
   padding-left: 15px;
 }
-.sell {
+.tom-sell {
   margin: 50px auto;
   width: 80vw;
   font-size: 14px;
@@ -321,21 +318,21 @@ ol {
   word-spacing: 2px;
   display: flex;
 }
-.sell-product {
+.tom-sell-product {
   width: 20vw;
 }
 
-.sell-product img {
+.tom-sell-product img {
   height: 30vh;
   width: 80%;
   margin: 0 auto;
 }
 
-.sell-title {
+.tom-sell-title {
   margin-top: 15px;
   margin-bottom: -15px;
 }
-.sell-desicription {
+.tom-sell-desicription {
   margin-left: 5px;
   margin-top: 25px;
 }

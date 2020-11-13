@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
-// import Star from './Star'
+import Star from './Star'
+import { Link, withRouter } from 'react-router-dom'
 function Rows(props) {
   const [fav, setFav] = useState(false)
   const [Specialoffer, setSpecialoffer] = useState(false)
@@ -12,18 +13,16 @@ function Rows(props) {
       setSpecialoffer(false)
     }
   }, [])
-  // if (v.Specialoffer <= v.price) {
-  //   setSpecialoffer(true)
-  // }
-  //問題1 if (v.Specialoffer <= v.price) {
-  //   setSpecialoffer(true)
-  // }
-  //問題二 搜尋後setoption
+  const link = '/ProductList/' + v.sid
+
   return (
     <>
       <div class="shop_list-product col-xl-3  col-lg-4 col-md-6	">
         <div class="shop_list_top_pro">
-          <img src={v.imgurl} alt="" />
+          <Link to={link}>
+            <img src={v.imgurl} alt="" />
+          </Link>
+
 
           <span
             id={i}
@@ -64,7 +63,7 @@ function Rows(props) {
               {v.name} <span>30ml</span>
             </p>
 
-            {/* <Star v={v} /> */}
+            <Star v={v} />
           </div>
         </div>
         <div class="shop_list-cart">
@@ -79,4 +78,4 @@ function Rows(props) {
     </>
   )
 }
-export default Rows
+export default withRouter(Rows)
