@@ -61,7 +61,7 @@ header ul li:last-child {
   margin: 0;
 }
 
-main {
+.tom-main {
   width: 80vw;
   display: flex;
 }

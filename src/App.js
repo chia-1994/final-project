@@ -28,6 +28,10 @@ import Cart from './pages/Cart'
 import PaymentInfo from './pages/PaymentInfo'
 import OrderCheck from './pages/OrderCheck'
 import OrderDone from './pages/OrderDone'
+import { Container } from 'react-bootstrap'
+//後台
+import Containers from './components/seller_back/Containers'
+import Footers from './components/seller_back/Footers'
 
 function App() {
   //設定登入登出的狀態
@@ -93,6 +97,10 @@ function App() {
                 <MemberRoot />
               </Route>
             </MemberMain>
+            <Route path="/seller">
+              <Containers isAuth={isAuth} setisAuth={setisAuth} />
+              <Footers isAuth={isAuth} setisAuth={setisAuth} />
+            </Route>
           </Switch>
         </ScrollToTop>
         <Footer />
