@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import Navbar from '../components/Navebar'
+import Footer from '../components/Footer'
 import OrderListCard from '../components/cart/OrderListCard'
 import BackToShopBtn from '../components/cart/BackToShopBtn'
 
@@ -14,7 +16,7 @@ function OrderDone(props) {
         <OrderListCard />
         <div className="row col-12 mb-5 justify-content-center">
           <Link to="/ShopList">
-            <BackToShopBtn />
+            <BackToShopBtn onClick={localStorage.removeItem('cart')} />
           </Link>
         </div>
       </div>

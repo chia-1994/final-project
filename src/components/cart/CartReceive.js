@@ -1,6 +1,38 @@
-import React, { useState } from 'react'
+import { data } from 'jquery'
+import React, { useState, useEffect } from 'react'
 
 function CartReceive(props) {
+  const [memberInfo, setMemberInfo] = useState([])
+  const [memberChecked, setMemberChecked] = useState(false)
+
+  // function getMemberInfo() {
+  //   const newMemberInfo = []
+
+  //   fetch('http://localhost:3000/api/delivery-addr', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'applications/json',
+  //       body: JSON.stringify.data,
+  //     },
+  //   }).then(() => {
+  //     const a = JSON.stringify.data
+  //     newMemberInfo = JSON.parse(a)
+  //   })
+  // }
+
+  // //
+  // useEffect(() => {
+  //   const a = JSON.stringify([{ id: 1, name: 'Bunny', level: 1 }])
+
+  //   localStorage.setItem('memberLogInInfo', a)
+  // })
+
+  // useEffect(() => {
+  //   getMemberInfo()
+  // })
+
+  // const loginInfo = JSON.parse(localStorage.getItem('memberLogInInfo'))
+
   return (
     <>
       <div className="col-7">
