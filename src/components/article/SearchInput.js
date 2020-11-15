@@ -32,6 +32,7 @@ function SearchInput() {
           }}
           type="text"
           placeholder="關鍵字搜尋"
+          className="search-input"
         />
       </div>
     </>

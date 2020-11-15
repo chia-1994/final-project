@@ -1,4 +1,4 @@
-input {
+input.search-input {
   width: 150px;
   border: 2px solid #00273c;
   border-radius: 75px;
@@ -6,7 +6,7 @@ input {
   padding: 0 10px;
   letter-spacing: 2px;
 }
-input:focus {
+input.search-input:focus {
   outline: none;
   padding: 0 10px;
 }

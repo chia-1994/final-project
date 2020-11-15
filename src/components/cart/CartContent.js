@@ -200,7 +200,7 @@ function CartContent(props) {
                         }}
                       >
                         <img
-                          className="icon"
+                          className="cart-icon"
                           src="./images/remove_circle_outline.svg"
                           alt=""
                         />
@@ -214,7 +214,7 @@ function CartContent(props) {
                         onClick={() => updateCartToLocalStorage(item, true)}
                       >
                         <img
-                          className="icon"
+                          className="cart-icon"
                           src="./images/add_circle_outline.svg"
                           alt=""
                         />

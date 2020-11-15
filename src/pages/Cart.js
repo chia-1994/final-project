@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import bootstrap from 'react-bootstrap'
 
-import Navbar from '../components/Navebar'
-import Footer from '../components/Footer'
 import CartContent from '../components/cart/CartContent'
 import BackToShopBtn from '../components/cart/BackToShopBtn'
 import PaymentInfoBtn from '../components/cart/PaymentInfoBtn'
 
 import '../../node_modules/bootstrap/scss/bootstrap.scss'
 import '../styles/cart/cart.css'
-import '../components/'
 
 function Cart(props) {
   return (

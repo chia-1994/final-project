@@ -10,7 +10,7 @@ function OrderDone(props) {
   return (
     <>
       <div className="container">
-        <div className="row justify-content-center my-3">
+        <div className="row justify-content-center my-5">
           <h3>感謝您的購買！</h3>
         </div>
         <OrderListCard />

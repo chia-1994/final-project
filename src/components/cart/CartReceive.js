@@ -1,4 +1,3 @@
-import { data } from 'jquery'
 import React, { useState, useEffect } from 'react'
 
 function CartReceive(props) {
