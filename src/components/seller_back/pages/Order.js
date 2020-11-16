@@ -17,13 +17,14 @@ function Order(props) {
   const [postsPerPage] = useState(5)
   const [Option, setOption] = useState(0)
   const [inputSearch, setInputSearch] = useState('')
+  const [delUpdate, setDelUpdate] = useState(false)
 
   async function getUsersFromServer() {
     // 開啟載入指示
-    setDataLoading(true)
+    // setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3000/seller/get-db'
+    const url = 'http://localhost:3000/seller/sellerOrder'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -36,7 +37,7 @@ function Order(props) {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3000/seller/get-db', {
+    fetch('http://localhost:3000/seller/sellerOrder', {
       method: 'POST',
       headers: new Headers({
         Accept: 'application/json',
@@ -52,16 +53,19 @@ function Order(props) {
         // console.log(res)
         setCommodity(res)
       })
-  }, [Option])
+  }, [Option, inputSearch])
 
   const deletcUserFromServer = async (order_id) => {
-    const res = await fetch('http://localhost:3000/seller/del/' + order_id, {
-      method: 'DELETE',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+    const res = await fetch(
+      'http://localhost:3000/seller/OrderDel/' + order_id,
+      {
+        method: 'DELETE',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      }
+    )
     const data = [...(await res.json())]
 
     console.log(data)
@@ -71,25 +75,30 @@ function Order(props) {
       })
 
       setCommodity(newProducts)
+      // setDelUpdate(!delUpdate)
       alert('刪除完成')
     }
   }
-  useEffect(() => {
-    getUsersFromServer()
-  }, [commodity])
+  useEffect(
+    () => {
+      getUsersFromServer()
+    },
+    [delUpdate],
+    [commodity]
+  )
 
-  // 一開始就會開始載入資料
-  useEffect(() => {
-    console.log(123)
-    getUsersFromServer()
-  }, [])
+  // // 一開始就會開始載入資料
+  // useEffect(() => {
+  //   console.log(123)
+  //   getUsersFromServer()
+  // }, [])
 
-  // 每次users資料有變動就會X秒後關掉載入指示
-  useEffect(() => {
-    setTimeout(() => {
-      setDataLoading(false)
-    }, 1000)
-  }, [commodity])
+  // // 每次users資料有變動就會X秒後關掉載入指示
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setDataLoading(false)
+  //   }, 600)
+  // }, [commodity])
 
   const loading = (
     <>
@@ -132,24 +141,47 @@ function Order(props) {
             <th scope="col">姓名</th>
             <th scope="col">金額</th>
             <th scope="col">時間</th>
-            <th scope="col">取貨方式</th>
-            <th scope="col">出貨狀態</th>
+            <th scope="col">付款狀態</th>
+            <th scope="col">包裹狀態</th>
           </tr>
         </thead>
         <tbody>
           {currentorder.map((value, index) => {
+            let str = ''
+            switch (value.Order_State) {
+              default:
+              case 1:
+                str = '尚未付款'
+                break
+              case 2:
+                str = '處理中'
+                break
+              case 3:
+                str = '待收貨'
+                break
+              case 4:
+                str = '已完成'
+                break
+              case 5:
+                str = '已取消'
+                break
+            }
+
             return (
-              <tr key={value.order_id}>
-                <td>{value.order_id}</td>
+              <tr key={value.Order_id}>
+                <td>{value.Order_id}</td>
                 <td>{value.Member_name}</td>
                 <td>{value.Order_TotalPrice}</td>
-                <td>{moment(value.Order_CreatedTime).format('YYYY-MM-DD')}</td>
-                <td>{value.Order_State}</td>
+                <td>
+                  {moment(value.Order_CreatedTime).format('YYYY-MM-DD HH-mm')}
+                </td>
+                {/* <td>{value.Order_CreatedTime}</td> */}
                 <td>{value.Order_pay}</td>
+                <td>{str}</td>
                 <Button
                   variant="success"
                   onClick={() => {
-                    props.history.push('/order-edit/' + value.order_id)
+                    props.history.push('/order-edit/' + value.Order_id)
                   }}
                 >
                   <MdModeEdit /> 編輯
@@ -157,7 +189,7 @@ function Order(props) {
                 {'  '}
                 <Button
                   onClick={() => {
-                    deletcUserFromServer(value.order_id)
+                    deletcUserFromServer(value.Order_id)
                   }}
                   variant="danger"
                 >

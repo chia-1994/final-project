@@ -3,15 +3,15 @@ import '../member.css'
 import FollowTbody from './FollowTbody'
 
 function Follow() {
-  const [memberFollowingItems, setmemberFollowingItems] = useState([])
-  //
+  const [memberFollowingItems, setMemberFollowingItems] = useState([])
+
   // const localStoragememberFollowingItems = JSON.parse(localStorageItems)
-  // setmemberFollowingItems(localStoragememberFollowingItems)
+  // setMemberFollowingItems(localStoragememberFollowingItems)
 
   //從localStorage拿追蹤商品
   function getItemFromLocalStorage() {
     const localStorageItems = localStorage.getItem('memberFollowingItems')
-    setmemberFollowingItems(JSON.parse(localStorageItems))
+    setMemberFollowingItems(JSON.parse(localStorageItems))
   }
 
   //要傳到<FollowTbody /> 從追蹤清單移除的方法
@@ -23,7 +23,25 @@ function Follow() {
       'memberFollowingItems',
       JSON.stringify(newmemberFollowingItems)
     )
-    setmemberFollowingItems(afterDel)
+    setMemberFollowingItems(afterDel)
+  }
+
+  const handleAddToCart = (e) => {
+    const cartItem = localStorage.getItem('cart')
+    const data = {
+      sid: e.id,
+      name: e.name,
+      price: e.price,
+      picture: e.picture,
+      amount: 1,
+    }
+    if (cartItem === null) {
+      localStorage.setItem('cart', JSON.stringify([data]))
+    } else {
+      const newCart = JSON.parse(cartItem)
+      const addNewItem = [data, ...newCart]
+      localStorage.setItem('cart', JSON.stringify(addNewItem))
+    }
   }
 
   useEffect(() => {
@@ -56,6 +74,7 @@ function Follow() {
                     picture={item.picture}
                     name={item.name}
                     price={item.price}
+                    addToCartMethod={() => handleAddToCart(item)}
                     deleteMethod={() => handleDelete(item.id)}
                   />
                 )

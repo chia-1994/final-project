@@ -17,9 +17,9 @@ import ArticleList from './pages/ArticleList'
 //product
 import ProductList from './pages/ProductList'
 import ShopList from './pages/ShopList'
-import ProductData from './pages/ProductData'
-import ProductAdd from './pages/ProductAdd'
-import ProductEdit from './pages/ProductEdit'
+// import ProductData from './components/seller_back/pages/ProductData'
+// import ProductAdd from './components/seller_back/pages/ProductAdd'
+// import ProductEdit from './components/seller_back/pages/ProductEdit'
 //活動
 import CourseList from './pages/CourseList'
 import CourseDetail from './pages/CourseDetail'
@@ -41,8 +41,13 @@ function App() {
   }
 
   return (
-    <>
-      <Router>
+    <Router>
+      <>
+        <Switch>
+          <Route path="/SellerBack">
+            <SellerBack />
+          </Route>
+        </Switch>
         <Navbar isAuth={isAuth} setisAuth={setisAuth} />
         <ScrollToTop>
           <Switch>
@@ -58,7 +63,7 @@ function App() {
             <Route path="/ShopList/:category?/:sid?/">
               <ShopList />
             </Route>
-            <Route path="/ProductData/:sid?">
+            {/* <Route path="/ProductData/:sid?">
               <ProductData />
             </Route>
             <Route path="/ProductAdd">
@@ -66,7 +71,7 @@ function App() {
             </Route>
             <Route path="/ProductEdit/:sid?">
               <ProductEdit />
-            </Route>
+            </Route> */}
             <Route path="/articleList">
               <ArticleList />
             </Route>
@@ -89,21 +94,18 @@ function App() {
               <OrderDone />
             </Route>
             <MemberMain>
-              <Route path="/">
+              {/* <Route path="/">
                 <MemberHome />
-              </Route>
+              </Route> */}
               <Route path="/memberroot">
                 <MemberRoot />
               </Route>
             </MemberMain>
           </Switch>
-          <Route path="/SellerBack">
-            <SellerBack />
-          </Route>
         </ScrollToTop>
         <Footer />
-      </Router>
-    </>
+      </>
+    </Router>
   )
 }
 

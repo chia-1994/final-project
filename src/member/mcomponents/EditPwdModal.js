@@ -76,7 +76,9 @@ function EditPwdModal(props) {
         //   console.log(row)
 
         // })
-        .catch((error) => {})
+        .catch((error) => {
+          console.log('error')
+        })
     }
   }
 

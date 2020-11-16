@@ -13,6 +13,14 @@ import Order from './pages/Order'
 import OrderEdit from './pages/OrderEdit'
 import Class from './pages/Class'
 import Login from './pages/SellerLogin'
+import ProductAdd from './pages/ProductAdd'
+import ProductData from './pages/ProductData'
+import ProductEdit from './pages/ProductEdit'
+import ClassAdd from './pages/ClassAdd'
+import ClassData from './pages/ClassData'
+import ClassEdit from './pages/ClassEdit'
+
+import '../../styles/variable.scss'
 
 function Containers(props) {
   const [loginModalShow, setLoginModalShow] = useState(false)
@@ -49,17 +57,38 @@ function Containers(props) {
           </div>
           <div className="col-xl-10 col-lg-9 col-md-8 main-style-chin">
             <Switch>
-              <Route path="/seller">
+              <Route path="/SellerBack">
+                <MainPage />
+              </Route>
+              <Route path="/MainPage">
                 <MainPage />
               </Route>
               <Route path="/Order">
                 <Order />
               </Route>
-              <Route path="/order-edit/:sid">
+              <Route path="/order-edit/:Order_id">
                 <OrderEdit />
               </Route>
               <Route path="/Class">
                 <Class />
+              </Route>
+              <Route path="/ProductAdd/:sid?">
+                <ProductAdd />
+              </Route>
+              <Route path="/ProductData/:sid?">
+                <ProductData />
+              </Route>
+              <Route path="/ProductEdit/:sid?">
+                <ProductEdit />
+              </Route>
+              <Route path="/ClassData/:sid?">
+                <ClassData />
+              </Route>
+              <Route path="/ClassAdd/:sid?">
+                <ClassAdd />
+              </Route>
+              <Route path="/ClassEdit/:sid?">
+                <ClassEdit />
               </Route>
             </Switch>
           </div>
