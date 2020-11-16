@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './css/TypeDetail.css'
-import SearchInput from './SearchInput'
 function TypeDetail() {
   return (
     <>

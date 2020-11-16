@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import './../css/TypeButton.css'
+import '../css/TypeButton.css'
 function TypeButton(props) {
   const { setType } = props
   return (
     <>
-      <ul>
-        <li>
+      <ul className="typeUl">
+        <li className="typeLi">
+          <button
+            className="typeButton"
+            onClick={() => {
+              props.setType(0)
+            }}
+          >
+            全部文章
+          </button>
+        </li>
+        <li className="typeLi">
           <button
             className="typeButton"
             onClick={() => {
@@ -15,7 +25,7 @@ function TypeButton(props) {
             精選特輯
           </button>
         </li>
-        <li>
+        <li className="typeLi">
           <button
             className="typeButton"
             onClick={() => {
@@ -25,7 +35,7 @@ function TypeButton(props) {
             產品筆記
           </button>
         </li>
-        <li>
+        <li className="typeLi">
           <button
             className="typeButton"
             onClick={() => {
@@ -35,7 +45,7 @@ function TypeButton(props) {
             活動體驗
           </button>
         </li>
-        <li>
+        <li className="typeLi">
           <button
             className="typeButton"
             onClick={() => {
@@ -43,6 +53,16 @@ function TypeButton(props) {
             }}
           >
             永續生活
+          </button>
+        </li>
+        <li className="typeLi">
+          <button
+            className="typeButton"
+            onClick={() => {
+              props.setType(5)
+            }}
+          >
+            臉部保養
           </button>
         </li>
       </ul>

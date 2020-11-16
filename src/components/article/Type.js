@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import './css/.css'
-import SearchInput from './SearchInput'
+import './css/articleAll.css'
 function Type() {
   return (
     <>
@@ -8,7 +7,6 @@ function Type() {
         <div className="title">
           <img src="./IMG/文章專欄.png" alt="圖片遺失" />
         </div>
-        <SearchInput />
       </div>
     </>
   )

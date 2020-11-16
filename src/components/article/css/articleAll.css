@@ -96,7 +96,7 @@ header ul li:last-child {
   left: 450px;
 }
 
-main {
+.arMain {
   width: 1170px;
   margin: 0 auto;
   display: -webkit-box;
@@ -107,17 +107,17 @@ main {
   justify-content: space-between;
 }
 
-main .articleList {
+.arMain .articleList {
   width: 665px;
   line-height: 32px;
 }
 
-main .articleList .latestArticle {
+.arMain .articleList .latestArticle {
   position: relative;
   height: 780px;
 }
 
-main .articleList .latestArticle h2 {
+.arMain .articleList .latestArticle h2 {
   font-size: 48px;
   font-weight: 900;
   color: #00273c;
@@ -125,13 +125,13 @@ main .articleList .latestArticle h2 {
   padding: 25px 0 5px 0;
 }
 
-main .articleList .latestArticle .contextP {
+.arMain .articleList .latestArticle .contextP {
   max-width: 665px;
   height: 140px;
   padding: 0 12px;
 }
 
-main .articleList .latestArticle .contextP p {
+.arMain .articleList .latestArticle .contextP p {
   padding: 0 !important;
   width: 100%;
   overflow: hidden;
@@ -144,33 +144,33 @@ main .articleList .latestArticle .contextP p {
   /* height: 150px; */
 }
 
-main .articleList .latestArticle .forHover {
+.arMain .articleList .latestArticle .forHover {
   width: 665px;
   height: 400px;
   margin: 10px 0;
   overflow: hidden;
 }
 
-main .articleList .latestArticle .forHover img {
+.arMain .articleList .latestArticle .forHover img {
   width: 100%;
   height: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-main .articleList .latestArticle .forHover img:hover {
+.arMain .articleList .latestArticle .forHover img:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
   opacity: 0.8;
 }
 
-main .articleList .latestArticle p {
+.arMain .articleList .latestArticle p {
   padding: 0 15px;
   font-size: 18px;
   color: #627a86;
 }
 
-main .articleList .latestArticle button {
+.arMain .articleList .latestArticle .latestArticleBtn {
   position: absolute;
   bottom: 10px;
   right: 15px;
@@ -180,18 +180,18 @@ main .articleList .latestArticle button {
   border: none;
 }
 
-main .articleList .latestArticle button a {
+.arMain .articleList .latestArticle .latestArticleBtn a {
   text-decoration: none;
   color: #fff;
 }
 
-main .articleList .latestArticle button:hover {
+.arMain .articleList .latestArticle .latestArticleBtn:hover {
   background-color: #559534;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-main .articleList .hr {
+.arMain .articleList .hr {
   width: 645px;
   height: 2px;
   border-radius: 1px;
@@ -199,14 +199,19 @@ main .articleList .hr {
   margin: 20px auto;
 }
 
-main .articleList .otherArticles {
+.arMain .articleList .otherArticles {
   width: 665px;
   max-height: 1106px;
-  overflow: hidden;
-  /* overflow-y: scroll; */
+  /* overflow: hidden; */
+  overflow-y: scroll;
+}
+.arMain .articleList .otherArticles::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  /*將scrollbar變不見 仍有效果*/
 }
 
-main .articleList .otherArticles .otherArticle {
+.arMain .articleList .otherArticles .otherArticle {
   max-width: 630px;
   position: relative;
   padding: 15px 0;
@@ -223,41 +228,41 @@ main .articleList .otherArticles .otherArticle {
   transition: 0.3s;
 }
 
-main .articleList .otherArticles .otherArticle .forHover {
+.arMain .articleList .otherArticles .otherArticle .forHover {
   width: 400px;
   height: 230px;
   overflow: hidden;
 }
 
-main .articleList .otherArticles .otherArticle .forHover img {
+.arMain .articleList .otherArticles .otherArticle .forHover img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
-main .articleList .otherArticles .otherArticle .forHover img:hover {
+.arMain .articleList .otherArticles .otherArticle .forHover img:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
   opacity: 0.8;
 }
 
-main .articleList .otherArticles .otherArticle .text {
+.arMain .articleList .otherArticles .otherArticle .text {
   padding: 20px;
   width: 265px;
 }
 
-main .articleList .otherArticles .otherArticle .text h3 {
+.arMain .articleList .otherArticles .otherArticle .text h3 {
   font-size: 30px;
   color: #00273c;
   text-align: left;
   margin-bottom: 15px;
 }
 
-main .articleList .otherArticles .otherArticle .text p {
+.arMain .articleList .otherArticles .otherArticle .text p {
   font-size: 18px;
   color: #627a86;
 }
 
-main .articleList .otherArticles .otherArticle .text button {
+.arMain .articleList .otherArticles .otherArticle .text button {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -267,23 +272,23 @@ main .articleList .otherArticles .otherArticle .text button {
   border: none;
 }
 
-main .articleList .otherArticles .otherArticle .text button a {
+.arMain .articleList .otherArticles .otherArticle .text button a {
   text-decoration: none;
   color: #fff;
 }
 
-main .articleList .otherArticles .otherArticle .text button:hover {
+.arMain .articleList .otherArticles .otherArticle .text button:hover {
   background-color: #559534;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-main .articleList .otherArticles .otherArticle:hover {
+.arMain .articleList .otherArticles .otherArticle:hover {
   -webkit-box-shadow: 5px 5px 8px #dcd7cc;
   box-shadow: 5px 5px 8px #dcd7cc;
 }
 
-main .articleList .otherArticles .otherArticleReverse {
+.arMain .articleList .otherArticles .otherArticleReverse {
   max-width: 630px;
   position: relative;
   padding: 15px 0;
@@ -304,36 +309,36 @@ main .articleList .otherArticles .otherArticleReverse {
   transition: 0.3s;
 }
 
-main .articleList .otherArticles .otherArticleReverse .forHover {
+.arMain .articleList .otherArticles .otherArticleReverse .forHover {
   width: 400px;
   height: 230px;
   overflow: hidden;
 }
 
-main .articleList .otherArticles .otherArticleReverse .forHover img {
+.arMain .articleList .otherArticles .otherArticleReverse .forHover img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
-main .articleList .otherArticles .otherArticleReverse .forHover img:hover {
+.arMain .articleList .otherArticles .otherArticleReverse .forHover img:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
   opacity: 0.8;
 }
 
-main .articleList .otherArticles .otherArticleReverse .text {
+.arMain .articleList .otherArticles .otherArticleReverse .text {
   padding: 20px;
   width: 265px;
 }
 
-main .articleList .otherArticles .otherArticleReverse .text h3 {
+.arMain .articleList .otherArticles .otherArticleReverse .text h3 {
   font-size: 30px;
   color: #00273c;
   text-align: left;
   margin-bottom: 10px;
 }
 
-main .articleList .otherArticles .otherArticleReverse .text p {
+.arMain .articleList .otherArticles .otherArticleReverse .text p {
   width: 240px;
   font-size: 18px;
   color: #627a86;
@@ -341,7 +346,7 @@ main .articleList .otherArticles .otherArticleReverse .text p {
   text-overflow: ellipsis;
 }
 
-main .articleList .otherArticles .otherArticleReverse .text button {
+.arMain .articleList .otherArticles .otherArticleReverse .text button {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -351,34 +356,34 @@ main .articleList .otherArticles .otherArticleReverse .text button {
   border: none;
 }
 
-main .articleList .otherArticles .otherArticleReverse .text button a {
+.arMain .articleList .otherArticles .otherArticleReverse .text button a {
   text-decoration: none;
   color: #fff;
 }
 
-main .articleList .otherArticles .otherArticleReverse .text button:hover {
+.arMain .articleList .otherArticles .otherArticleReverse .text button:hover {
   background-color: #559534;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-main .articleList .otherArticles .otherArticleReverse:hover {
+.arMain .articleList .otherArticles .otherArticleReverse:hover {
   -webkit-box-shadow: -5px 5px 8px #dcd7cc;
   box-shadow: -5px 5px 8px #dcd7cc;
 }
 
-main .articleList .dropIcon {
+.arMain .articleList .dropIcon {
   margin: 50px auto 100px;
   width: 65px;
   height: 40px;
 }
 
-main .recommend {
+.arMain .recommend {
   width: 400px;
   height: 1800px;
 }
 
-main .recommend .featured {
+.arMain .recommend .featured {
   width: 100%;
   height: 575px;
   border: 2px solid #a8d182;
@@ -387,7 +392,7 @@ main .recommend .featured {
   overflow: hidden;
 }
 
-main .recommend .featured .featuredTop {
+.arMain .recommend .featured .featuredTop {
   width: 100%;
   height: 50px;
   background-color: #a8d182;
@@ -400,7 +405,7 @@ main .recommend .featured .featuredTop {
   border: none;
 }
 
-main .recommend .featured .featuredBlock {
+.arMain .recommend .featured .featuredBlock {
   position: relative;
   width: 100%;
   height: 88px;
@@ -412,13 +417,13 @@ main .recommend .featured .featuredBlock {
   align-items: center;
 }
 
-main .recommend .featured .featuredBlock button {
+.arMain .recommend .featured .featuredBlock button {
   border: none;
   border-radius: 50%;
   margin: 0 15px;
 }
 
-main .recommend .featured .featuredBlock button a {
+.arMain .recommend .featured .featuredBlock button a {
   display: block;
   background-color: #a8d182;
   border-radius: 50%;
@@ -431,13 +436,13 @@ main .recommend .featured .featuredBlock button a {
   font-weight: 900;
 }
 
-main .recommend .featured .featuredBlock button a:hover {
+.arMain .recommend .featured .featuredBlock button a:hover {
   background-color: #559534;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-main .recommend .featured .featuredBlock h3 {
+.arMain .recommend .featured .featuredBlock h3 {
   padding: 0 20px 0 0;
   font-size: 20px;
   color: #00273c;
@@ -445,7 +450,7 @@ main .recommend .featured .featuredBlock h3 {
   font-weight: 900;
 }
 
-main .recommend .featured .featuredBlock .line {
+.arMain .recommend .featured .featuredBlock .line {
   position: absolute;
   bottom: 0;
   left: 10%;
@@ -454,7 +459,7 @@ main .recommend .featured .featuredBlock .line {
   background-color: #dcd7cc;
 }
 
-main .recommend .productRecommend {
+.arMain .recommend .productRecommend {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -468,7 +473,7 @@ main .recommend .productRecommend {
   height: 100px;
 }
 
-main .recommend .productRecommend div {
+.arMain .recommend .productRecommend div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -477,24 +482,24 @@ main .recommend .productRecommend div {
   align-items: center;
 }
 
-main .recommend .productRecommend div img {
+.arMain .recommend .productRecommend div img {
   width: 60px;
   height: 60px;
 }
 
-main .recommend .productRecommend div h3 {
+.arMain .recommend .productRecommend div h3 {
   font-size: 30px;
   color: #a8d182;
   margin-left: 15px;
 }
 
-main .recommend .productLink {
+.arMain .recommend .productLink {
   width: 320px;
   height: 530px;
   margin: 0 auto;
 }
 
-main .recommend .productLink .coupon {
+.arMain .recommend .productLink .coupon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,43 +509,43 @@ main .recommend .productLink .coupon {
   font-weight: 600;
 }
 
-main .recommend .productLink .coupon div:first-child {
+.arMain .recommend .productLink .coupon div:first-child {
   background-color: #fff462;
   color: #00273c;
   margin-right: 5px;
   padding: 3px;
 }
 
-main .recommend .productLink .coupon div:nth-child(2) {
+.arMain .recommend .productLink .coupon div:nth-child(2) {
   background-color: #276262;
   color: #fff;
   padding: 3px;
 }
 
-main .recommend .productLink h3 {
+.arMain .recommend .productLink h3 {
   padding: 0 20px;
   color: #00273c;
   margin-bottom: 5px;
 }
 
-main .recommend .productLink p {
+.arMain .recommend .productLink p {
   padding: 0 20px;
   color: #627a86;
   margin-bottom: 5px;
 }
 
-main .recommend .productLink .productLine {
+.arMain .recommend .productLink .productLine {
   width: 98%;
   margin: 5px auto;
   height: 1px;
   background-color: #dcd7cc;
 }
 
-main .recommend .productLink .productTime {
+.arMain .recommend .productLink .productTime {
   text-align: right;
 }
 
-main .recommend .productLink .productPrice {
+.arMain .recommend .productLink .productPrice {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -553,12 +558,12 @@ main .recommend .productLink .productPrice {
   padding-right: 20px;
 }
 
-main .recommend .productLink .productPrice img {
+.arMain .recommend .productLink .productPrice img {
   width: 23px;
   height: 21px;
 }
 
-/* footer {
+footer {
   width: 100%;
 }
 
@@ -619,5 +624,5 @@ footer .footerInfo ul li div {
 footer .backGroundColor {
   height: 75px;
   background-color: #dce9d7;
-} */
+}
 /*# sourceMappingURL=ArticalLists.css.map */
