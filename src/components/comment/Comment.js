@@ -19,7 +19,7 @@ import { transformSkinType } from '../../utils'
 import ReactStars from 'react-rating-stars-component'
 import reactStars from 'react-rating-stars-component'
 
-function Comment() {
+function Comment(props) {
   const [comment, setComment] = useState([])
   const [displayComment, setDisplayComment] = useState([])
   const [selectedSkin, setSelectedSkin] = useState(0)
@@ -28,6 +28,7 @@ function Comment() {
   const [postsPerPage, setPostPerPage] = useState(5)
   const [totalComment, setTotalComment] = useState([])
   const [avgRating, setAvgRating] = useState(0)
+  const { isAuth } = props
   //顯示評論的填寫區
   const [showInput, setShowInput] = useState(false)
   //按讚
@@ -357,6 +358,8 @@ function Comment() {
                 displayComment={displayComment}
                 selectedSkin={selectedSkin}
                 deleteCommentFromServer={deleteCommentFromServer}
+                isAuth={isAuth}
+                // setisAuth={setisAuth}
               />
             </div>
           </div>

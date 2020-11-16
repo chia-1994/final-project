@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
 import {
   Container,
@@ -13,7 +14,15 @@ import Counter from './Counter'
 import { transformSkinType } from '../../utils'
 
 function CommentList(props) {
-  const { displayComment, setDisplayComment, deleteCommentFromServer } = props
+  const {
+    displayComment,
+    setDisplayComment,
+    deleteCommentFromServer,
+    isAuth,
+  } = props
+
+  // console.log(props)
+
   const [commentlist, setCommentList] = useState([])
 
   const deleteCommnet = (deleteCommentId) => {
@@ -50,13 +59,30 @@ function CommentList(props) {
                     <p>{moment(item.date).format('YYYY-MM-DD')}</p>
                   </div>
                   <Counter />
-                  <Button
+                  {isAuth === false ? (
+                    ''
+                  ) : (
+                      <>
+                        <Button
+                          onClick={() => deleteCommnet(item.sid)}
+                          style={{
+                            fontSize: '16px',
+                            color: 'white',
+                            margin: '10px',
+                          }}
+                          variant="success"
+                        >
+                          刪除
+                      </Button>
+                      </>
+                    )}
+                  {/* <Button
                     onClick={() => deleteCommnet(item.sid)}
                     style={{ fontSize: '16px', color: 'white', margin: '10px' }}
                     variant="success"
                   >
                     刪除
-                  </Button>
+                  </Button> */}
                 </div>
               </Col>
             </>

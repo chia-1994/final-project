@@ -55,7 +55,7 @@ function App() {
               <Home />
             </Route>
             <Route path="/product">
-              <Product />
+              <Product isAuth={isAuth} />
             </Route>
             <Route path="/ProductList">
               <ProductList />

@@ -142,13 +142,13 @@ input {
   cursor: pointer;
   background-color: #71a757;
 }
-.btn {
+/* .btn {
   background-color: #ddead7;
-}
-.btn:hover {
+} */
+/* .btn:hover {
   background-color: #71a757;
   color: #fff;
-}
+} */
 .cart-list {
   border: 5px solid #a8d182;
   text-align: center;
