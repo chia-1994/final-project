@@ -1,5 +1,5 @@
 import React from 'react'
-import '../App.css'
+// import '../App.css'
 //import Navbar from '../conponents/common/Navbar'
 import TypeDetail from '../components/article/TypeDetail'
 import DetailMain from './../components/article/DetailMain'
@@ -11,7 +11,7 @@ function ArticleDetail() {
     <>
       <div class="hr"></div>
       <TypeDetail />
-      <main>
+      <main className="arMain">
         <DetailMain />
       </main>
       <div class="hr"></div>

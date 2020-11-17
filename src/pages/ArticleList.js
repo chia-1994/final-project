@@ -2,17 +2,20 @@ import React from 'react'
 // import '../App.css'
 // import Navbar from '../conponents/common/Navbar'
 import Type from '../components/article/Type'
-import Main from '../components/article/ListMain'
+import ListMain from '../components/article/ListMain'
 // import Featured from '../conponents/forMain/Featured'
 // import Footer from '../conponents/common/Footer'
 
 function ArticleList() {
   return (
     <>
-      <div class="hr"></div>
+      <div className="hr"></div>
       <Type />
-      <Main />
-      <div class="hr"></div>
+      <main className="arMain">
+        <ListMain />
+      </main>
+
+      <div className="hr"></div>
     </>
   )
 }
