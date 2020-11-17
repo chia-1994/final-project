@@ -13,9 +13,12 @@ import '../styles/cart/cart.css'
 
 function OrderCheck(props) {
   const [isDroped, setIsDroped] = useState(false)
+  const [tableShowed, setTableShowed] = useState(null)
   const [mycart, setMycart] = useState([])
   const [mycartDisplay, setMycartDisplay] = useState([])
   const [myTotal, setMyTotal] = useState([])
+  const [price, setPrice] = useState(0)
+  const [amount, setAmount] = useState(0)
 
   function getCartFromLocalStorage() {
     const newCart = localStorage.getItem('cart') || '[]'
@@ -76,8 +79,13 @@ function OrderCheck(props) {
 
     if (isDroped === true) {
       arrow.style.transform = 'rotate(0deg)'
+
+      const newTableShowed = null
+      setTableShowed(newTableShowed)
     } else {
       arrow.style.transform = 'rotate(180deg)'
+      const newTableShowed = display
+      setTableShowed(newTableShowed)
     }
     setIsDroped((prevIsDroped) => !prevIsDroped)
   }
@@ -137,7 +145,49 @@ function OrderCheck(props) {
       </div>
     </>
   )
-  const empty = <></>
+  useEffect(() => {
+    const newPrice = myTotal[1]
+
+    setPrice(newPrice)
+  })
+  useEffect(() => {
+    const newAmount = myTotal[0]
+
+    setAmount(newAmount)
+  })
+
+  // const order = {
+  //   Order_State: 2,
+  //   Order_code: '20043UUSCCKK',
+  //   Member_id: 1,
+  //   Menber_name: 'Bunny',
+  //   Order_name: 'Bunny',
+  //   Order_mobile: '0912345678',
+  //   Order_deliver_type: 'e',
+  //   Order_deliver_store: null,
+  //   Order_package_id: 'SALT00002',
+  //   Order_address: '台北市大安區忠孝東路四段45號',
+  //   Order_pay: 'e20',
+  //   Order_CreatedTime: null,
+  //   Order_Amount: amount,
+  //   Order_TotalPrice: price,
+  // }
+
+  // const addOrder = async () => {
+  //   await fetch('http://localhost:3000/api/order', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'applications/json',
+  //     },
+  //     body: encodeURI(JSON.stringify(order)),
+  //   })
+  //     .then((res) => {
+  //       res.json()
+  //     })
+  //     .then((result) => {
+  //       console.log(result)
+  //     })
+  // }
 
   return (
     <>
@@ -150,9 +200,9 @@ function OrderCheck(props) {
 
         <div className="row col-12 px-0 justify-content-center">
           <div className="cart-list w-100 mb-3">
-            <div className="total-wrap">合計：NT$ {myTotal[1]}</div>
+            <div className="total-wrap">合計：NT$ {price}</div>
             <div className="cart-dropdown d-flex justify-content-center align-items-center">
-              購物車：{myTotal[0]}件 &ensp;
+              購物車：{amount}件 &ensp;
               <Link
                 onClick={() => {
                   spinTheArrow()
@@ -168,16 +218,18 @@ function OrderCheck(props) {
             </div>
           </div>
         </div>
-        {() => {
-          return isDroped ? display : empty
-        }}
-        <OrderListCard />
+        {tableShowed}
+        <OrderListCard price={price} amount={amount} />
         <div className="row col-12 mb-5 justify-content-between">
-          <Link to="/order-check">
+          <Link to="/payment-info">
             <PaymentInfoBtn />
           </Link>
           <Link to="/order-done">
-            <CheckoutBtn />
+            <CheckoutBtn
+            // onClick={() => {
+            //   addOrder()
+            // }}
+            />
           </Link>
         </div>
       </div>

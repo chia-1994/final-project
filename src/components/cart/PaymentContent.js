@@ -11,7 +11,7 @@ import RecheckOrderBtn from './RecheckOrderBtn'
 
 function PaymentContent(props) {
   const [isDroped, setIsDroped] = useState(false)
-  const [tableShowed, setTableShowed] = useState(false)
+  const [tableShowed, setTableShowed] = useState(null)
   const [mycart, setMycart] = useState([])
   const [mycartDisplay, setMycartDisplay] = useState([])
   const [myTotal, setMyTotal] = useState([])
@@ -76,11 +76,15 @@ function PaymentContent(props) {
 
     if (isDroped === true) {
       arrow.style.transform = 'rotate(0deg)'
+
+      const newTableShowed = null
+      setTableShowed(newTableShowed)
     } else {
       arrow.style.transform = 'rotate(180deg)'
+      const newTableShowed = display
+      setTableShowed(newTableShowed)
     }
     setIsDroped((prevIsDroped) => !prevIsDroped)
-    setTableShowed((prevTableShoowed) => !prevTableShoowed)
   }
 
   const display = (
@@ -169,7 +173,7 @@ function PaymentContent(props) {
         {/* {() => {
           return tableShowed ? display : null
         }} */}
-        {display}
+        {tableShowed}
         <div className="row col-12 px-0">
           <CartReceive />
           <CartCreditCard />

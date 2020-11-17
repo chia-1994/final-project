@@ -2,35 +2,64 @@ import React, { useState, useEffect } from 'react'
 
 function CartReceive(props) {
   const [memberInfo, setMemberInfo] = useState([])
-  const [memberChecked, setMemberChecked] = useState(false)
+  const [memberInfoUsed, setMemberInfoUsed] = useState(false)
+
+  const [name, setName] = useState('')
+  const [tel, setTel] = useState('')
+  const [post, setPost] = useState('')
+  const [addr, setAddr] = useState('')
 
   // function getMemberInfo() {
   //   const newMemberInfo = []
 
   //   fetch('http://localhost:3000/api/delivery-addr', {
-  //     method: 'POST',
+  //     method: 'GET',
   //     headers: {
   //       'Content-Type': 'applications/json',
-  //       body: JSON.stringify.data,
   //     },
-  //   }).then(() => {
-  //     const a = JSON.stringify.data
-  //     newMemberInfo = JSON.parse(a)
   //   })
+  //     .then((res) => {
+  //       res.json()
+  //     })
+  //     .then((result) => {
+  //       newMemberInfo = JSON.parse(result)
+  //       setMemberInfo(newMemberInfo)
+  //     })
   // }
 
-  // //
-  // useEffect(() => {
-  //   const a = JSON.stringify([{ id: 1, name: 'Bunny', level: 1 }])
+  //
+  useEffect(() => {
+    const a = JSON.stringify([{ id: 1, name: 'Bunny', level: 1 }])
 
-  //   localStorage.setItem('memberLogInInfo', a)
-  // })
+    localStorage.setItem('memberLogInInfo', a)
+  })
 
   // useEffect(() => {
   //   getMemberInfo()
   // })
 
-  // const loginInfo = JSON.parse(localStorage.getItem('memberLogInInfo'))
+  useEffect(() => {
+    JSON.parse(localStorage.getItem('memberLogInInfo'))
+  })
+
+  const checkMemberInfo = () => {
+    const checkbox = document.querySelector('#member-data')
+
+    if (memberInfoUsed === false) {
+      const newName = 'Bunny'
+      const newTel = '0912345678'
+      const newPost = '106'
+      const newAddr = '台北市大安區忠孝東路四段45號'
+
+      setName(newName)
+      setTel(newTel)
+      setPost(newPost)
+      setAddr(newAddr)
+    } else {
+    }
+
+    setMemberInfoUsed((prevMemberInfoUsed) => !prevMemberInfoUsed)
+  }
 
   return (
     <>
@@ -51,6 +80,9 @@ function CartReceive(props) {
               name="member-data"
               id="member-data"
               className="mb-3"
+              onClick={() => {
+                checkMemberInfo()
+              }}
             />
             <label for="member-data" className="mb-3">
               同會員資料
@@ -65,6 +97,7 @@ function CartReceive(props) {
               id="order-name"
               className="mb-3"
               required
+              value={name}
             />
             <br />
             <label for="order-phone" className="mb-3">
@@ -76,17 +109,30 @@ function CartReceive(props) {
               id="order-phone"
               className="mb-3"
               required
+              value={tel}
             />
             <br />
             <label for="order-port" className="mb-3">
               郵遞區號：
             </label>
-            <input type="text" name="order" id="order-port" className="mb-3" />
+            <input
+              type="text"
+              name="order"
+              id="order-port"
+              className="mb-3"
+              value={post}
+            />
             <br />
             <label for="order-addr" className="mb-3">
               地址：
             </label>
-            <input type="text" name="order" id="order-addr" className="mb-3" />
+            <input
+              type="text"
+              name="order"
+              id="order-addr"
+              className="mb-3"
+              value={addr}
+            />
             <br />
           </div>
         </div>
