@@ -23,10 +23,10 @@ function OtherArticle(props) {
   //       <div className="forHover"  >
   //         <img src={"http://localhost:3001/Img/文章圖片/"+ value.picName} alt="" />
   //       </div>
-  //         <div className="text">
+  //         <div className="artext">
   //           <h3>{value.title}</h3>
   //           <p>{value.createTime}</p>
-  //           <button><Link to="/articleDetail">繼續閱讀</Link></button>
+  //           <button className="otherBtn"><Link to="/articleDetail">繼續閱讀</Link></button>
   //         </div>
   //     </div>)}
   //     )}
@@ -50,10 +50,10 @@ function OtherArticle(props) {
                   alt=""
                 />
               </div>
-              <div className="text" key={value.sid}>
-                <h3>{value.title}</h3>
+              <div className="artext" key={value.sid}>
+                <h3 className="arH3">{value.title}</h3>
                 <p>{value.createTime}</p>
-                <button>
+                <button className="otherBtn">
                   <Link to="/articleDetail">繼續閱讀</Link>
                 </button>
               </div>
@@ -74,10 +74,10 @@ function OtherArticle(props) {
                   alt=""
                 />
               </div>
-              <div className="text" key={value.sid}>
-                <h3>{value.title}</h3>
+              <div className="artext" key={value.sid}>
+                <h3 className="arH3">{value.title}</h3>
                 <p>{value.createTime}</p>
-                <button>
+                <button className="otherBtn">
                   <Link to="/articleDetail">繼續閱讀</Link>
                 </button>
               </div>
@@ -100,10 +100,10 @@ function OtherArticle(props) {
                   alt=""
                 />
               </div>
-              <div className="text">
+              <div className="artext">
                 <h3>{value.title}</h3>
                 <p>{value.createTime}</p>
-                <button>
+                <button className="otherBtn">
                   <Link to="/articleDetail">繼續閱讀</Link>
                 </button>
               </div>
@@ -118,10 +118,10 @@ function OtherArticle(props) {
                   alt=""
                 />
               </div>
-              <div className="text">
+              <div className="artext">
                 <h3>{value.title}</h3>
                 <p>{value.createTime}</p>
-                <button>
+                <button className="otherBtn">
                   <Link to="/articleDetail">繼續閱讀</Link>
                 </button>
               </div>
@@ -144,10 +144,10 @@ function OtherArticle(props) {
   //       <div className="forHover" key={value.sid}  >
   //       <img src={"http://localhost:3001/Img/文章圖片/"+ value.picName} alt="" />
   //       </div>
-  //       <div className="text" key={value.sid}>
+  //       <div className="artext" key={value.sid}>
   //         <h3>{value.title}</h3>
   //         <p>{value.createTime}</p>
-  //         <button><Link to="/articleDetail">繼續閱讀</Link></button>
+  //         <button className="otherBtn"><Link to="/articleDetail">繼續閱讀</Link></button>
   //       </div>
   //       </QueueAnim>
   //   })}

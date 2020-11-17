@@ -14,6 +14,7 @@ import MemberHome from './pages/MemberHome'
 import MemberRoot from './pages/MemberRoot'
 //article
 import ArticleList from './pages/ArticleList'
+import ArticleDetail from './pages/ArticleDetail'
 //product
 import ProductList from './pages/ProductList'
 import ShopList from './pages/ShopList'
@@ -74,6 +75,9 @@ function App() {
             </Route> */}
             <Route path="/articleList">
               <ArticleList />
+            </Route>
+            <Route path="/ArticleDetail">
+              <ArticleDetail />
             </Route>
             <Route path="/CourseList">
               <CourseList />
