@@ -1,10 +1,10 @@
-import ControlledCarousel from '../components/course/ControlledCarousel'
-import TopCourseDetail from '../components/course/TopCourseDetail'
-import BodyCourseDetail from '../components/course/BodyCourseDetail'
+// import Navbar from '../components/Navebar'
+import BodyCourseSubmit from '../components/course/BodyCourseSubmit'
+// import Footer from '../components/Footer'
 import React, { useState, useEffect } from 'react'
-import '../CourseDetail.css'
+import '../CourseSubmit.css'
 
-function CourseDetail() {
+function CourseSubmit() {
   const [mydata, setMydata] = useState()
   const getData = async () => {
     const res = await fetch('http://localhost:3000/course/get-db', {
@@ -17,7 +17,6 @@ function CourseDetail() {
     const data = await res.json()
 
     setMydata(data)
-    console.log(data)
   }
 
   useEffect(() => {
@@ -26,11 +25,11 @@ function CourseDetail() {
 
   return (
     <>
-      <ControlledCarousel />
-      <TopCourseDetail data={mydata} />
-      <BodyCourseDetail data={mydata} />
+      {/* <Navbar /> */}
+      <BodyCourseSubmit data={mydata} />
+      {/* <Footer /> */}
     </>
   )
 }
 
-export default CourseDetail
+export default CourseSubmit

@@ -1,74 +1,21 @@
-html {
-  color: #707070;
-  font-family: 'Noto Serif TC', serif;
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-header {
-  width: 100%;
-  height: 100px;
-  background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-header img {
-  position: relative;
-  left: 15%;
-  width: 120px;
-  height: 46px;
-}
-
-header ul {
-  position: relative;
-  right: 15%;
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-header ul li {
-  margin: 0 20px;
-  font-size: 18px;
-}
-
-header ul li a {
-  text-decoration: none;
-  color: #a8d182;
-}
-
-header ul li a img {
-  width: 29px;
-  height: 26px;
-}
-
-header ul li:last-child {
-  margin: 0;
-}
-
 .tom-main {
+  margin: 0px auto 50px;
   width: 80vw;
   display: flex;
 }
 
 .tom-article {
   border-top: 2px solid #a8de82;
-  font-size: 18px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  line-height: 1.5;
+
+  padding: 15px 0;
+  width: 80%;
+}
+.tom-ar2 {
+  font-size: 20px;
   letter-spacing: 2px;
   font-weight: lighter;
   line-height: 1.5;
@@ -90,49 +37,65 @@ header ul li:last-child {
 .tom-product-title {
   color: #707070;
   margin-top: 3px;
-  font-size: 25px;
+  font-size: 36px;
 }
 .tom-ml {
   font-size: 12px;
 }
 .tom-product-main img {
-  width: 40vw;
-
+  width: 800px;
+  height: 800px;
   object-fit: cover;
 }
 
 .tom-small-product {
-  height: 100;
+  height: 100px;
 
   position: absolute;
-  top: 0;
+  top: 100px;
   left: 0;
 }
 
 .tom-small-product img {
-  width: 84px;
+  width: 90px;
   height: 90px;
   display: block;
+  opacity: 0.6;
+  object-fit: cover;
 }
 .tom-count {
-  display: flex;
-
   width: 100%;
   font-size: 15px;
   padding-top: 15px;
-
+  display: flex;
   vertical-align: bottom;
 }
 .tom-sel {
-  height: 30px;
   width: 100px;
   border: 1px solid #ddead7;
   margin-right: 15px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 15px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+}
+.tom-sel img {
+  width: 14px;
+  height: 14px;
+  align-self: center;
+  cursor: pointer;
+}
+.amo {
+  font-size: 20px;
 }
 
 .tom-price {
   font-size: 20px;
   margin-top: 20px;
+  font-size: 25px;
+  /* margin-left: 30px; */
 }
 
 .tom-ar-title {
@@ -152,7 +115,8 @@ header ul li:last-child {
   margin-top: 14px;
   text-align: center;
   display: inline-block;
-
+  font-size: 20px;
+  cursor: pointer;
   background-color: #ddead7;
 }
 
@@ -317,22 +281,57 @@ header ul li:last-child {
   line-height: 1.5;
   word-spacing: 2px;
   display: flex;
+  justify-content: space-around;
+  /* border-top: 5px solid #ddead7; */
+  padding-top: 20px;
 }
-.tom-sell-product {
-  width: 20vw;
+.tom-about-product {
+  margin: 50px auto;
+  padding-bottom: 20px;
+  width: 80vw;
+  border-bottom: 2px solid #ddead7;
 }
-
 .tom-sell-product img {
-  height: 30vh;
-  width: 80%;
-  margin: 0 auto;
+  height: 300px;
+  width: 250px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .tom-sell-title {
   margin-top: 15px;
   margin-bottom: -15px;
+  font-size: 18px;
 }
 .tom-sell-desicription {
-  margin-left: 5px;
-  margin-top: 25px;
+  width: 300px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.tom-graystar {
+  fill: gray;
+}
+.tom-cart {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.tom-cart button {
+  background-color: #a8d182;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 2px 6px;
+  width: 92px;
+  height: 30px;
+  font-weight: bold;
+  align-items: center;
+  margin-top: 21px;
+}
+.tom-sell-product svg {
+  fill: #ffd700;
+  width: 22px;
+  margin-top: 15px;
 }

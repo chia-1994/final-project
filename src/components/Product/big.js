@@ -4,15 +4,15 @@ const PARAMS = {
   // 放大倍数
   scale: 2,
   // 组件宽
-  width: 700,
+  width: 800,
   // 组件高
-  height: 900,
+  height: 800,
 }
 
 // 鼠标悬停小方块 width的半径
-const mouseRadiusW = PARAMS.width / PARAMS.scale / 2
+const mouseRadiusW = PARAMS.width / PARAMS.scale / 4
 // 鼠标悬停小方块 height的半径
-const mouseRadiusH = PARAMS.height / PARAMS.scale / 2
+const mouseRadiusH = PARAMS.height / PARAMS.scale / 4
 
 // 样式
 const ClassObj = {
@@ -20,7 +20,7 @@ const ClassObj = {
   imgContainer: {
     width: `${PARAMS.width}px`,
     height: `${PARAMS.height}px`,
-    border: '1px solid #ccc',
+
     cursor: 'move',
     position: 'relative',
   },
@@ -51,9 +51,9 @@ const ClassObj = {
   magnifierContainer: {
     position: 'absolute',
     left: `${PARAMS.width}px`,
-    top: '0',
-    width: `${500}px`,
-    height: `${500}px`,
+    top: `${150}px`,
+    width: `${400}px`,
+    height: `${400}px`,
     border: '1px solid #ccc',
     overflow: 'hidden',
     zIndex: 98,

@@ -23,6 +23,7 @@ import ShopList from './pages/ShopList'
 //活動
 import CourseList from './pages/CourseList'
 import CourseDetail from './pages/CourseDetail'
+import CourseSubmit from './pages/CourseSubmit'
 //購物車
 import Cart from './pages/Cart'
 import PaymentInfo from './pages/PaymentInfo'
@@ -80,6 +81,9 @@ function App() {
             </Route>
             <Route path="/CourseDetail/:id?">
               <CourseDetail />
+            </Route>
+            <Route path="/CourseSubmit/form">
+              <CourseSubmit />
             </Route>
             <Route path="/cart">
               <Cart />

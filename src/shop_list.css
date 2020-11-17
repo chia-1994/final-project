@@ -1,5 +1,5 @@
 body {
-  /* font-family: 'Noto Serif TC', serif; */
+  font-family: 'Noto Serif TC', serif;
 }
 
 header {
@@ -113,6 +113,7 @@ header ul li:last-child {
   background-color: #a8d182;
   color: white;
   border: none;
+  cursor: pointer;
 
   border-radius: 5px;
   font-weight: bold;
@@ -130,9 +131,10 @@ header ul li:last-child {
 .shop_list-nav {
   font-size: 18px;
   width: 150px;
-  position: absolute;
+  float: left;
   top: 700px;
   border-right: 3px solid #a8de82;
+  cursor: pointer;
 }
 
 .shop_list-nav li {
@@ -160,8 +162,10 @@ header ul li:last-child {
   object-fit: cover;
 }
 .shop_list-title {
+  line-height: 50px;
   overflow: hidden;
   max-width: 350px;
   height: 50px;
   font-size: 16px;
+  text-align: center;
 }

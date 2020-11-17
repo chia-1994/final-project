@@ -48,13 +48,13 @@ function Level() {
           <h6 className="col-3" style={{ textAlign: 'center' }}>
             白銀會員
           </h6>
-          <h6 className="col-3" style={{ extAlign: 'center' }}>
+          <h6 className="col-3" style={{ textAlign: 'center' }}>
             黃金會員
           </h6>
-          <h6 className="col-3" style={{ extAlign: 'center' }}>
+          <h6 className="col-3" style={{ textAlign: 'center' }}>
             白金會員
           </h6>
-          <h6 className="col-3" style={{ extAlign: 'center' }}>
+          <h6 className="col-3" style={{ textAlign: 'center' }}>
             鑽石會員
           </h6>
         </div>
