@@ -6,7 +6,7 @@ import '../CourseList.css'
 
 function CourseList() {
   const [inputSearch, setInputSearch] = useState('')
-  const [mydata, setMydata] = useState()
+  const [mydata, setMydata] = useState([])
   const getData = async () => {
     const res = await fetch('http://localhost:3000/course/get-db', {
       method: 'POST',
@@ -23,7 +23,7 @@ function CourseList() {
   useEffect(() => {
     getData()
   }, [])
-
+  // console.log(mydata)
   return (
     <>
       <ControlledCarousel />
@@ -32,7 +32,7 @@ function CourseList() {
         inputSearch={inputSearch}
         getData={getData}
       />
-      <TopCourse data={mydata} />
+      <TopCourse mydata={mydata} />
     </>
   )
 }

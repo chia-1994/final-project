@@ -5,13 +5,15 @@ import { withRouter } from 'react-router-dom'
 
 function TopCourse(props) {
   let history = useHistory()
-  const { data } = props
+  const { mydata } = props
   //設定頁碼
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(3)
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost)
+
+  const currentPosts = mydata.slice(indexOfFirstPost, indexOfLastPost)
+  console.log(mydata)
   const paginate = (number) => {
     setCurrentPage(number)
   }
@@ -61,7 +63,7 @@ function TopCourse(props) {
         {display.length !== 0 ? display : noData}
         <CoursePagination
           postsPerPage={postsPerPage}
-          totalPosts={data.length}
+          totalPosts={mydata.length}
           paginate={paginate}
         />
       </div>
