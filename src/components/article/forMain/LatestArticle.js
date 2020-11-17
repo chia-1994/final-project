@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import './../css/.css'
+import { Link } from 'react-router-dom'
+import '../css/articleAll.css'
 function LatestArticle() {
   const [article, setArticle] = useState([])
+  const [show, setShow] = useState(0)
 
   async function getArticleFromServer() {
     const url = 'http://localhost:3000/article/forLatest'
@@ -26,24 +28,28 @@ function LatestArticle() {
   const display = (
     <>
       {article.map((value, index) => {
-        return (
-          <div className="latestArticle">
-            <h2>{value.title}</h2>
-            <p>{value.createTime}</p>
-            <div className="forHover">
-              <img
-                src={'http://localhost:3001/Img/文章圖片/' + value.picName}
-                alt=""
-              />
+        if (show == 0) {
+          return (
+            <div className="latestArticle" key={value.sid}>
+              <h2>{value.title}</h2>
+              <p>{value.createTime}</p>
+              <div className="forHover">
+                <img
+                  src={'http://localhost:3001/Img/文章圖片/' + value.picName}
+                  alt=""
+                />
+              </div>
+              <div className="contextP">
+                <p>{value.context}</p>
+              </div>
+              <button className="latestArticleBtn">
+                <Link to="/articleDetail">繼續閱讀</Link>
+              </button>
             </div>
-            <div className="contextP">
-              <p>{value.context}</p>
-            </div>
-            <button>
-              <a href="#">繼續閱讀</a>
-            </button>
-          </div>
-        )
+          )
+        } else if (show == 1) {
+          return
+        }
       })}
     </>
   )

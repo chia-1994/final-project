@@ -7,6 +7,7 @@ import { withRouter } from 'react-router'
 import '../shop_list.css'
 function ShopList(props) {
   console.log(props)
+  const { isAuth } = props
   const [inputSearch, setInputSearch] = useState('')
   const [category, setCategory] = useState(0)
   const [mydata, setMydata] = useState([])
@@ -41,7 +42,12 @@ function ShopList(props) {
         getData={getData}
       />
       <Nav setCategory={setCategory} />
-      <ProductRow data={mydata} category={category} inputSearch={inputSearch} />
+      <ProductRow
+        data={mydata}
+        category={category}
+        inputSearch={inputSearch}
+        isAuth={isAuth}
+      />
     </>
   )
 }

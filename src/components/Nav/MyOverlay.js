@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Popover, Overlay } from 'react-bootstrap'
 import Login from '../../pages/Login'
+import { withRouter } from 'react-router-dom'
 
 function MyOverlay(props) {
   const [show, setShow] = useState(false)
@@ -47,13 +48,20 @@ function MyOverlay(props) {
             isAuth={isAuth}
           />
           {/* </Popover.Title> */}
-          {/* <Popover.Content>
-            <strong>Holy guacamole!</strong> Check this info.
-          </Popover.Content> */}
+
+          <Popover.Content>
+            <p
+              onClick={() => {
+                props.history.push('/memberroot/aboutme')
+              }}
+            >
+              會員中心
+            </p>
+          </Popover.Content>
         </Popover>
       </Overlay>
     </div>
   )
 }
 
-export default MyOverlay
+export default withRouter(MyOverlay)

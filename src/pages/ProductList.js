@@ -5,9 +5,10 @@ import Main from '../components/Product/Main'
 import UnderDescription from '../components/Product/UnderDescription'
 import OtherSell from '../components/Product/OtherSell'
 import Comment from '../components/comment/Comment'
-function ProductList() {
+function ProductList(props) {
   const [myData, setData] = useState()
   const [ScrollY, setScrollY] = useState()
+  const { isAuth } = props
   const getData = async () => {
     const res = await fetch('http://localhost:3000/product/get-db', {
       method: 'POST',
@@ -71,7 +72,7 @@ function ProductList() {
   return (
     <>
       <Main />
-      <Comment />
+      <Comment isAuth={isAuth} />
       <OtherSell />
     </>
   )

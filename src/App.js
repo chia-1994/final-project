@@ -14,6 +14,7 @@ import MemberHome from './pages/MemberHome'
 import MemberRoot from './pages/MemberRoot'
 //article
 import ArticleList from './pages/ArticleList'
+import ArticleDetail from './pages/ArticleDetail'
 //product
 import ProductList from './pages/ProductList'
 import ShopList from './pages/ShopList'
@@ -59,10 +60,10 @@ function App() {
               <Product isAuth={isAuth} />
             </Route>
             <Route path="/ProductList">
-              <ProductList />
+              <ProductList isAuth={isAuth} />
             </Route>
             <Route path="/ShopList/:category?/:sid?/">
-              <ShopList />
+              <ShopList isAuth={isAuth} />
             </Route>
             {/* <Route path="/ProductData/:sid?">
               <ProductData />
@@ -75,6 +76,9 @@ function App() {
             </Route> */}
             <Route path="/articleList">
               <ArticleList />
+            </Route>
+            <Route path="/ArticleDetail">
+              <ArticleDetail />
             </Route>
             <Route path="/CourseList">
               <CourseList />

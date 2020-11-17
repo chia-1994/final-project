@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './css/.css'
+import React from 'react'
+import './css/articleAll.css'
 import Featured from './forMain/Featured'
 import DetailPage from './forMain/DetailPage'
 

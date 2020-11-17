@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
 import {
   Container,
@@ -46,12 +45,12 @@ function CommentList(props) {
                       style={{ color: '#95C375', fontSize: '14px' }}
                     />
                   </div>
-                  <div className="skintype">
-                    您的肌膚類型:{transformSkinType(item.skin)}
-                  </div>
                 </div>
               </div>
               <Col xs={12} md={12}>
+                <div className="skintype">
+                  您的肌膚類型:{transformSkinType(item.skin)}
+                </div>
                 <div className="comment-content">
                   <h6>{item.title}</h6>
                   <p>{item.review}</p>
@@ -62,20 +61,20 @@ function CommentList(props) {
                   {isAuth === false ? (
                     ''
                   ) : (
-                      <>
-                        <Button
-                          onClick={() => deleteCommnet(item.sid)}
-                          style={{
-                            fontSize: '16px',
-                            color: 'white',
-                            margin: '10px',
-                          }}
-                          variant="success"
-                        >
-                          刪除
+                    <>
+                      <Button
+                        onClick={() => deleteCommnet(item.sid)}
+                        style={{
+                          fontSize: '16px',
+                          color: 'white',
+                          margin: '10px',
+                        }}
+                        variant="success"
+                      >
+                        刪除
                       </Button>
-                      </>
-                    )}
+                    </>
+                  )}
                   {/* <Button
                     onClick={() => deleteCommnet(item.sid)}
                     style={{ fontSize: '16px', color: 'white', margin: '10px' }}
