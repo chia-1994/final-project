@@ -4,14 +4,17 @@ import ControlledCarousel from '../components/ShopList/ControlledCarousel'
 import ProductRow from '../components/ShopList/ProductRow'
 import Nav from '../components/ShopList/Nav'
 import { withRouter } from 'react-router'
+
 import '../shop_list.css'
+
 function ShopList(props) {
   console.log(props)
-  const { isAuth } = props
+  const {isAuth}=props
   const [inputSearch, setInputSearch] = useState('')
   const [category, setCategory] = useState(0)
   const [mydata, setMydata] = useState([])
   const [Option, setOption] = useState(0)
+  console.log(Option)
   const getData = async () => {
     const res = await fetch('http://localhost:3000/product/get-db', {
       method: 'POST',
@@ -20,16 +23,16 @@ function ShopList(props) {
         'Content-Type': 'application/json',
       }),
       body: JSON.stringify({ Options: Option, inputSearch }),
+      
     })
     const data = await res.json()
-    console.log(data)
+    console.log(Option)
     setMydata(data)
   }
-
-  useEffect(async () => {
+  useEffect(() => {
     getData()
   }, [Option])
-  console.log(category)
+
   return (
     <>
       <ControlledCarousel />
@@ -42,12 +45,8 @@ function ShopList(props) {
         getData={getData}
       />
       <Nav setCategory={setCategory} />
-      <ProductRow
-        data={mydata}
-        category={category}
-        inputSearch={inputSearch}
-        isAuth={isAuth}
-      />
+
+      <ProductRow data={mydata} category={category} inputSearch={inputSearch} isAuth={isAuth}/>
     </>
   )
 }

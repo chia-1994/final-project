@@ -36,11 +36,16 @@ import SellerBack from './components/seller_back/pages/SellerBack'
 
 function App() {
   //設定登入登出的狀態
-  const [isAuth, setisAuth] = useState(false)
+  const [isAuth, setisAuth] = useState()
 
-  if (isAuth === false) {
-    localStorage.removeItem('memberLogInInfo')
+  useEffect(() => {
+    const memberAuth = localStorage.getItem('memberLogInInfo')
+  if(memberAuth === null ){
+    setisAuth(false)
+  }else{
+    setisAuth(true)
   }
+  }, [])
 
   return (
     <Router>

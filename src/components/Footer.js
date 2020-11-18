@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Footer.sass'
 import { Link } from 'react-router-dom'
+import SellerLogin from '../pages/SellerLogin'
 
-function Footer() {
+
+function Footer(props) {
+  const {setisAuth,isAuth}=props
+  const [loginModalShow,setLoginModalShow]= useState(false)
   return (
     <>
       <footer>
@@ -32,9 +36,17 @@ function Footer() {
             </li>
             <li>
               <div></div>
-            </li>
+            </li>           
             <li>
               <Link to="/article">文章專欄</Link>
+            </li>
+            <div></div>
+            <li>
+              <SellerLogin
+              loginModalShow={loginModalShow}
+              setLoginModalShow = {setLoginModalShow}
+              setisAuth={setisAuth}
+              isAuth={isAuth}/>
             </li>
           </ul>
         </div>

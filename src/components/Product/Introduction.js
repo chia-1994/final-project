@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { Rate } from 'antd'
 function Introduction() {
   const [amount, setAmount] = useState(1)
   const data = {
-    sid: 5,
-    name: '竹翠洗髮乳',
+    sid: 25,
+    name: '奇蹟辣木油',
     price: 500,
-    picture: 'http://localhost:3001/img/top1.jpg',
+    picture: 'http://localhost:3001/img/hot00.jpg',
     amount: amount,
   }
   return (
@@ -15,13 +16,19 @@ function Introduction() {
           <div class="tom-title-top" id="title-top">
             <h2 class="tom-product-title">
               {' '}
-              竹萃洗髮精 <span class="ml">250ml</span>
+              奇蹟辣木油 <span class="ml">250ml</span>
             </h2>
             <div class="tom-star-top">
-              <div>250 reviews</div>
+              <div>37 reviews</div>
+              {/* <img src="http://localhost:3001/SVG/star-empty.svg" alt="" />
               <img src="http://localhost:3001/SVG/star-empty.svg" alt="" />
-              <img src="http://localhost:3001/SVG/star-empty.svg" alt="" />
-              <img src="http://localhost:3001/SVG/star-empty.svg" alt="" />
+              <img src="http://localhost:3001/SVG/star-empty.svg" alt="" /> */}
+              <Rate
+                    disabled
+                    allowHalf
+                    defaultValue={4.5}
+                    style={{ color: '#95C375', fontSize: '14px' }}
+                  />
             </div>
           </div>
           <p class="tom-article" id="article">
@@ -38,7 +45,7 @@ function Introduction() {
               <img src="http://localhost:3001/icon/know-more-1.png" alt="" />
               <img src="http://localhost:3001/icon/know-more-3.png" alt="" />
             </div>
-            <h3 class="tom-price">NT 500</h3>
+            <h3 class="tom-price">NT 820</h3>
             <div class="tom-count">
               <div className="tom-sel">
                 <img

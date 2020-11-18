@@ -39,7 +39,7 @@ function MyOverlay(props) {
         // container={ref.current}
         containerPadding={20}
       >
-        <Popover id="popover-contained">
+        <Popover id="popover-contained" style={{ padding: '0.5rem' }}>
           {/* <Popover.Title as="h3"> */}
           <Login
             loginModalShow={loginModalShow}
@@ -54,6 +54,7 @@ function MyOverlay(props) {
               onClick={() => {
                 props.history.push('/memberroot/aboutme')
               }}
+              style={{margin:'0'}}
             >
               會員中心
             </p>

@@ -5,6 +5,7 @@ function Search(props) {
 
   const onChange = (e) => {
     setOption(e.target.value)
+
   }
 
   return (

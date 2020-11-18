@@ -171,17 +171,19 @@ function MemberLoginModal(props) {
     } else {
       setLoginModalShow(false)
       setisAuth(false)
+      localStorage.removeItem('memberLogInInfo')
+      props.history.push('')
     }
   }
 
   //快速輸入-LOGIN
-  function fastLoginFunction() {
+  function fastLoginFunction(){
     setMemberLoginEmail('bunny@yahoo.com.tw')
     setMemberLoginPwd('123')
   }
 
   //快速輸入-REGISTER
-  function fastRegisterFunction() {
+  function fastRegisterFunction(){
     setRegisterName('Adrian')
     setRegisterEmail('adrian@gmail.com')
     setRegisterPwd('123')
@@ -201,12 +203,12 @@ function MemberLoginModal(props) {
       </Modal.Header>
       <Modal.Body>
         <form>
-          <div className="form-group">
-            <input type="checkbox" id="fastinput" onClick={fastLoginFunction} />
-            <label className="form-check-label" htmlFor="fastinput">
-              快速輸入
-            </label>
-          </div>
+        <div className="form-group">
+        <input type="checkbox" id="fastinput" onClick={fastLoginFunction}/>
+        <label className="form-check-label" htmlFor="fastinput">
+          快速輸入
+        </label>
+        </div>
           <div className="form-group">
             <label htmlFor="loginEmail">電子郵件</label>
             <input
@@ -275,16 +277,12 @@ function MemberLoginModal(props) {
       </Modal.Header>
       <Modal.Body>
         <form>
-          <div className="form-group">
-            <input
-              type="checkbox"
-              id="fastregister"
-              onClick={fastRegisterFunction}
-            />
-            <label className="form-check-label" htmlFor="fastregister">
-              快速輸入
-            </label>
-          </div>
+        <div className="form-group">
+        <input type="checkbox" id="fastregister" onClick={fastRegisterFunction}/>
+        <label className="form-check-label" htmlFor="fastregister">
+          快速輸入
+        </label>
+        </div>
           <div className="form-group">
             <label htmlFor="registerName">顯示暱稱</label>
             <input
@@ -425,7 +423,7 @@ function MemberLoginModal(props) {
   )
 
   const loginBtn = (
-    <button className="login-btn" onClick={loginBtnCtrl}>
+    <button className="login-btn" onClick={loginBtnCtrl}  style={{width:"100%"}}>
       {isAuth ? '登出' : '登入'}
     </button>
   )

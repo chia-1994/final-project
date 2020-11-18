@@ -58,11 +58,11 @@ function AccountSetting(props) {
           setMemberGender(res[0].gender)
           setMemberPwd(res[0].pwd)
           setAvatar(res[0].avatar)
-          if (res[0].addressCode === 0) {
+          if(res[0].addressCode === 0 ){
             setCountry(-1)
             setTownship(-1)
-          } else {
-            setPostcode(res[0].addressCode.toString())
+          }else{
+            setPostcode((res[0].addressCode).toString())
           }
           setAddressStringDb(res[0].addressString)
         })
@@ -89,8 +89,8 @@ function AccountSetting(props) {
       gender: memberEditGender ? memberEditGender : memberGender,
       birth: memberEditBirth ? memberEditBirth : memberBirth,
       id: localStorageId,
-      addressCode: postcode,
-      addressString: addressStringDb,
+      addressCode: postcode ,
+      addressString: addressStringDb
     }
 
     fetch('http://localhost:3000/member/editMemberData', {
@@ -102,46 +102,47 @@ function AccountSetting(props) {
     })
       .then((res) => {
         console.log(res.json())
-        alert('修改成功！')
+        alert("修改成功！")
         return res.json()
       })
       .then((row) => {
         console.log(row)
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => {})
   }
 
-  //圖片上傳的click
-  function editAvatarOnChange(e) {
-    let file = e.target.files[0]
-    let imgName = file.name
-    const data = new FormData()
-    data.append('avatar', file)
-    fetch('http://localhost:3000/member/editMemberAvatar', {
-      method: 'POST',
-      body: data,
-    })
-      .then((res) => {
-        console.log(res)
-        fetch('http://localhost:3000/member/memberImg', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            id: localStorageId,
-            avatarName: imgName,
-          }),
-        }).then((res) => {
-          alert('修改成功！')
-          setAvatar(imgName)
-          return res.json()
+
+//圖片上傳的click
+function editAvatarOnChange(e) {
+  let file = e.target.files[0]
+  let imgName = file.name;
+  const data = new FormData()
+  data.append('avatar', file)
+  fetch('http://localhost:3000/member/editMemberAvatar', {
+    method: 'POST',
+    body: data,
+  })
+    .then(res => {
+      console.log(res)
+      fetch("http://localhost:3000/member/memberImg", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id: localStorageId,
+          avatarName: imgName
         })
       })
-      .catch((error) => console.log(error))
+        .then(res => {
+          alert("修改成功！")
+          setAvatar(imgName)
+          return res.json();
+        })
+    })
+    .catch(error => console.log(error));
   }
+
 
   //更改密碼的modal的判斷
   const [modalShow, setModalShow] = useState(false)
@@ -225,16 +226,16 @@ function AccountSetting(props) {
               </div>
               <div className="form-group">
                 <label htmlFor="address1">地址</label>
-                <TWZipCode
-                  country={country}
-                  setCountry={setCountry}
-                  township={township}
-                  setTownship={setTownship}
-                  postcode={postcode}
-                  setPostcode={setPostcode}
-                  addressStringDb={addressStringDb}
-                  setAddressStringDb={setAddressStringDb}
-                />
+              <TWZipCode
+                country={country}
+                setCountry={setCountry}
+                township={township}
+                setTownship={setTownship}
+                postcode={postcode}
+                setPostcode={setPostcode}
+                addressStringDb={addressStringDb}
+                setAddressStringDb={setAddressStringDb}
+               />
               </div>
               <h5>變更密碼</h5>
               <EditPwdModal
@@ -286,20 +287,20 @@ function AccountSetting(props) {
               更新大頭照
             </button> */}
             <form name="avatarform" encType="multipart/forn-data">
-              <div class="form-group mt-3">
-                {/* <label for="editAvatar">修改大頭貼</label> */}
-                <input
-                  name="avatar"
-                  type="file"
-                  class="form-control-file"
-                  id="editAvatar"
-                  accept=".jpg,.jpeg,.png"
-                  // value={avatar}
-                  onChange={editAvatarOnChange}
-                />
-                <img id="myimg" src="" alt="" width="600px"></img>
-              </div>
-            </form>
+                  <div class="form-group mt-3">
+                    {/* <label for="editAvatar">修改大頭貼</label> */}
+                    <input
+                      name="avatar"
+                      type="file"
+                      class="form-control-file"
+                      id="editAvatar"
+                      accept=".jpg,.jpeg,.png"
+                      // value={avatar}
+                      onChange={editAvatarOnChange}
+                    />
+                    <img id="myimg" src="" alt="" width="600px"></img>
+                  </div>
+                </form>
           </div>
         </div>
       </div>
