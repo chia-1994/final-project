@@ -6,6 +6,7 @@ import Featured from './forMain/Featured'
 import TypeButton from './forMain/TypeButton'
 import DropDownIcon from './forMain/DropDownIcon'
 import SearchInput from './SearchInput'
+import { Link } from 'react-router-dom'
 
 function ListMain() {
   const [inputSearch, setinputSearch] = useState('')
@@ -86,16 +87,21 @@ function ListMain() {
             </div>
           </div>
           <div className="productLink">
-            <img src="./IMG/linkPro.jpg" alt="" />
+            <Link to="/product">
+              <img src="./IMG/wet.jpg" alt="" />
+            </Link>
+
             <div className="coupon">
-              <div>限時優惠</div>
+              <div>最適合您</div>
               <div>熱銷</div>
             </div>
-            <h3>活萃修護精華油</h3>
-            <p>當季熱銷TOP3</p>
+            <h3>純粹保濕精華液</h3>
+            <p>以 12 種成分的簡單，打造更專注的純粹保濕</p>
+            <div className="productLine"></div>
+            <p className="productTime">30 ml</p>
             <div className="productLine"></div>
             <div className="productPrice">
-              <h3>$1280</h3>
+              <h3>$580</h3>
               <img src="./IMG/heart.svg" alt="" />
             </div>
           </div>
