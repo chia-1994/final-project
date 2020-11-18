@@ -19,12 +19,12 @@ function Footer(props) {
         </div>
         <div className="footerInfo">
           <ul>
-            <li>
+            {/* <li>
               <Link to="">品牌故事</Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <div></div>
-            </li>
+            </li> */}
             <li>
               <Link to="/product">商品列表</Link>
             </li>
@@ -40,7 +40,9 @@ function Footer(props) {
             <li>
               <Link to="/article">文章專欄</Link>
             </li>
-            <div></div>
+            <li>
+              <div></div>
+            </li>
             <li>
               <SellerLogin
               loginModalShow={loginModalShow}
