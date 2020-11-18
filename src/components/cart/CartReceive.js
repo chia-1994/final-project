@@ -95,7 +95,7 @@ function CartReceive(props) {
               type="text"
               name="order"
               id="order-name"
-              className="mb-3"
+              className="mb-3 cart-input"
               required
               value={name}
             />
@@ -107,7 +107,7 @@ function CartReceive(props) {
               type="tel"
               name="order"
               id="order-phone"
-              className="mb-3"
+              className="mb-3 cart-input"
               required
               value={tel}
             />
@@ -119,7 +119,7 @@ function CartReceive(props) {
               type="text"
               name="order"
               id="order-port"
-              className="mb-3"
+              className="mb-3 cart-input"
               value={post}
             />
             <br />
@@ -130,7 +130,7 @@ function CartReceive(props) {
               type="text"
               name="order"
               id="order-addr"
-              className="mb-3"
+              className="mb-3 cart-input"
               value={addr}
             />
             <br />

@@ -22,7 +22,7 @@ function DetailMain() {
           </div>
         </div>
         <div className="productLink">
-          <Link to="/product">
+          <Link to="/ProductList/13">
             <img src="./IMG/hot01.jpg" alt="" />
           </Link>
           <div className="coupon">

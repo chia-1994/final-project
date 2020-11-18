@@ -21,7 +21,7 @@ function CartCreditCard(props) {
             <input
               type="text"
               name="cardNum"
-              className="mr-1 mb-3"
+              className="cart-input mr-1 mb-3"
               maxLength="16"
               pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"
             />
@@ -32,7 +32,7 @@ function CartCreditCard(props) {
             <input
               type="text"
               name="cardExpire"
-              className="credit-num mr-1 mb-3"
+              className="credit-num cart-input mr-1 mb-3"
               maxLength="2"
               pattern=""
             />
@@ -40,7 +40,7 @@ function CartCreditCard(props) {
             <input
               type="text"
               name="cardExpire"
-              className="credit-num mr-1 mb-3"
+              className="credit-num cart-input mr-1 mb-3"
               maxLength="2"
               pattern=""
             />
@@ -50,7 +50,7 @@ function CartCreditCard(props) {
             <input
               type="text"
               name="securityCode"
-              className="credit-num mr-1 mb-3"
+              className="credit-num cart-input mr-1 mb-3"
               maxLength="3"
               pattern=""
             />
@@ -61,7 +61,7 @@ function CartCreditCard(props) {
             <input
               type="text"
               name="cardName"
-              className="credit-name"
+              className="credit-name cart-input"
               pattern=""
             />
           </div>

@@ -87,7 +87,7 @@ function ListMain() {
             </div>
           </div>
           <div className="productLink">
-            <Link to="/product">
+            <Link to="/ProductList/13">
               <img src="./IMG/wet.jpg" alt="" />
             </Link>
 

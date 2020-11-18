@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Rate } from 'antd'
 function Introduction() {
   const [amount, setAmount] = useState(1)
@@ -86,9 +87,9 @@ function Introduction() {
             </div>
             <h2 class="tom-ar-title">相關文章</h2>
             <ul>
-              <ol> 1. 不怕「秋老⻁」!入秋保養這樣做!</ol>
-              <ol> 2. 洗面乳這樣用可能都太多!肌膚斷捨離練習</ol>
-              <ol> 3. 洗面乳這樣用可能都太多!肌膚斷捨離練習</ol>
+              <ol><Link to="/CourseDetail/1"><div class="tom-title-ol">1.世外桃源的香草革命，台東尚德村的「小村遠遠」讓百人小村擁有更多未來</div> </Link></ol>
+              <ol ><Link to ="/CourseDetail/2"><div class="tom-title-ol">2.家長就是學校獨特資源！屏東四林國小校田凝聚全村之力陪孩子成長</div> </Link></ol>
+              <ol ><Link to ="/CourseDetail/3"><div class="tom-title-ol">3.熱氣球之外的台東 卑南藥草植物園與食療火鍋、鹿野紅烏龍與小農市集</div> </Link></ol>
             </ul>
           </div>
         </div>

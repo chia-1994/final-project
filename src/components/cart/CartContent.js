@@ -227,7 +227,7 @@ function CartContent(props) {
                       <button
                         type="button"
                         onClick={() => removeCartToLocalStorage(item)}
-                        className="btn del-btn"
+                        className="btn del-btn cart-btn"
                       >
                         刪除
                       </button>
@@ -241,7 +241,7 @@ function CartContent(props) {
                   <input
                     id="discount-code"
                     name="discount-code"
-                    className="discount-code"
+                    className="discount-code cart-input"
                     type="text"
                   />
                   <br />
@@ -286,7 +286,7 @@ function CartContent(props) {
                   type="button"
                   name="store-location"
                   value="選擇門市"
-                  className="btn store-location"
+                  className="btn cart-btn store-location"
                 />
               </div>
               <h5>付款方式</h5>

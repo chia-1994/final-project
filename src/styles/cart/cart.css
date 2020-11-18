@@ -18,16 +18,16 @@ header .navbar {
   background-color: #ccc;
 } */
 main {
-  margin: 100px !important;
+  margin: 100px;
 }
-input {
+input.cart-input {
   border: 2px solid #a8d182;
 }
 .container {
-  padding: 0 !important;
+  padding: 0;
 }
 .row {
-  max-width: 1170px !important;
+  max-width: 1170pxt;
 }
 .step-wrap {
   width: 540px !important;
@@ -144,10 +144,10 @@ input {
   cursor: pointer !important;
   background-color: #71a757;
 }
-.btn {
+.btn.cart-btn {
   background-color: #ddead7;
 }
-.btn:hover {
+.btn.cart-btn:hover {
   background-color: #71a757;
   color: #fff;
 }
