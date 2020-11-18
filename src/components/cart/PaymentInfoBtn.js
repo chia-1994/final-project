@@ -4,7 +4,7 @@ function PaymentInfoBtn(props) {
   return (
     <>
       <input
-        className="btn pay-info"
+        className="btn cart-btn pay-info"
         type="button"
         name="pay-info"
         id="pay-info"

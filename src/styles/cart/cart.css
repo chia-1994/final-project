@@ -20,7 +20,7 @@ header .navbar {
 main {
   margin: 100px !important;
 }
-input {
+input.cart-input {
   border: 2px solid #a8d182;
 }
 .container {
@@ -144,10 +144,10 @@ input {
   cursor: pointer !important;
   background-color: #71a757;
 }
-.btn {
+.btn.cart-btn {
   background-color: #ddead7;
 }
-.btn:hover {
+.btn.cart-btn:hover {
   background-color: #71a757;
   color: #fff;
 }

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import bootstrap from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import Navbar from '../components/Navebar'
-import Footer from '../components/Footer'
 import OrderListCard from '../components/cart/OrderListCard'
 import PaymentInfoBtn from '../components/cart/PaymentInfoBtn'
 import CheckoutBtn from '../components/cart/CheckoutBtn'
@@ -156,38 +154,54 @@ function OrderCheck(props) {
     setAmount(newAmount)
   })
 
-  // const order = {
-  //   Order_State: 2,
-  //   Order_code: '20043UUSCCKK',
-  //   Member_id: 1,
-  //   Menber_name: 'Bunny',
-  //   Order_name: 'Bunny',
-  //   Order_mobile: '0912345678',
-  //   Order_deliver_type: 'e',
-  //   Order_deliver_store: null,
-  //   Order_package_id: 'SALT00002',
-  //   Order_address: '台北市大安區忠孝東路四段45號',
-  //   Order_pay: 'e20',
-  //   Order_CreatedTime: null,
-  //   Order_Amount: amount,
-  //   Order_TotalPrice: price,
-  // }
+  const addOrder = async () => {
+    // const order = {
+    //   Order_State: 2,
+    //   Order_code: '20043UUSCCKK',
+    //   Member_id: 1,
+    //   Menber_name: 'Bunny',
+    //   Order_name: 'Bunny',
+    //   Order_mobile: '0912345678',
+    //   Order_deliver_type: 'e',
+    //   Order_deliver_store: null,
+    //   Order_package_id: 'SALT00002',
+    //   Order_address: '台北市大安區忠孝東路四段45號',
+    //   Order_pay: 'e20',
+    //   Order_CreatedTime: new Date(),
+    //   Order_Amount: amount,
+    //   Order_TotalPrice: price,
+    // }
 
-  // const addOrder = async () => {
-  //   await fetch('http://localhost:3000/api/order', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'applications/json',
-  //     },
-  //     body: encodeURI(JSON.stringify(order)),
-  //   })
-  //     .then((res) => {
-  //       res.json()
-  //     })
-  //     .then((result) => {
-  //       console.log(result)
-  //     })
-  // }
+    const order = {
+      Order_State: 2,
+      Order_code: '20043UUSCCKK',
+      Member_id: 1,
+      Member_name: 'Bunny',
+      Order_name: 'Bunny',
+      Order_mobile: '0912345678',
+      Order_deliver_type: 'e',
+      Order_deliver_store: '123',
+      Order_package_id: 'SALT00002',
+      Order_address: '台北市大安區忠孝東路四段45號',
+      Order_pay: 'e20',
+      Order_CreatedTime: new Date(),
+      Order_Amount: 3,
+      Order_TotalPrice: 1500,
+    }
+
+    await fetch('http://localhost:3000/api/order', {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(order),
+      headers: new Headers({
+        Accept: 'applications/json',
+        'Content-Type': 'applications/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log('ERROR!'))
+  }
 
   return (
     <>
@@ -224,12 +238,13 @@ function OrderCheck(props) {
           <Link to="/payment-info">
             <PaymentInfoBtn />
           </Link>
-          <Link to="/order-done">
-            <CheckoutBtn
-            // onClick={() => {
-            //   addOrder()
-            // }}
-            />
+          <Link
+            to="/order-done"
+            onClick={() => {
+              addOrder()
+            }}
+          >
+            <CheckoutBtn />
           </Link>
         </div>
       </div>
