@@ -1,5 +1,5 @@
 body {
-  /* font-family: 'Noto Serif TC', serif; */
+  font-family: 'Noto Serif TC', serif;
 }
 
 header {
@@ -90,7 +90,7 @@ header ul li:last-child {
 
 .shop_list-product-name {
   padding-bottom: 5px;
-  border-bottom: 3px solid #dcd7cc;
+  border-bottom: 1px solid #dcd7cc;
 }
 .shop_list-product-name .title {
   color: #00273c;
@@ -113,9 +113,10 @@ header ul li:last-child {
   background-color: #a8d182;
   color: white;
   border: none;
-
+  cursor: pointer;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 200;
+  font-size: 14px;
   padding: 2px 6px;
 }
 .shop_list-price {
@@ -130,9 +131,10 @@ header ul li:last-child {
 .shop_list-nav {
   font-size: 18px;
   width: 150px;
-  position: absolute;
+  float: left;
   top: 700px;
   border-right: 3px solid #a8de82;
+  cursor: pointer;
 }
 
 .shop_list-nav li {
@@ -160,8 +162,10 @@ header ul li:last-child {
   object-fit: cover;
 }
 .shop_list-title {
+  line-height: 50px;
   overflow: hidden;
   max-width: 350px;
   height: 50px;
   font-size: 16px;
+  text-align: center;
 }

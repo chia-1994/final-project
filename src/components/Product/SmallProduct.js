@@ -4,19 +4,16 @@ function SmallProduct() {
       <div class="tom-small-product" id="small-product">
         <div class="tom-scroll">
           <div>
-            <img src="http://localhost:3001/img/1.jpg" alt="" />
+            <img src="http://localhost:3001/img/hot00.jpg" alt="" id="img1" />
           </div>
           <div>
-            <img src="http://localhost:3001/img/2.jpg" alt="" />
+            <img src="http://localhost:3001/img/hot01.jpg" alt="" id="img2" />
           </div>
           <div>
-            <img src="http://localhost:3001/img/3.jpg" alt="" />
+            <img src="http://localhost:3001/img/hot04.jpg" alt="" id="img3" />
           </div>
           <div>
-            <img src="http://localhost:3001/img/4.jpg" alt="" />
-          </div>
-          <div>
-            <img src="http://localhost:3001/img/5.jpg" alt="" />
+            <img src="http://localhost:3001/img/top6.jpg" alt="" id="img4" />
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
 import '../member.css'
 import ReactDOM from 'react-dom'
@@ -135,55 +136,34 @@ function AboutMe() {
   //圖片上傳的click
   function editAvatarOnChange(e) {
     let file = e.target.files[0]
+    let imgName = file.name;
     const data = new FormData()
     data.append('avatar', file)
     fetch('http://localhost:3000/member/editMemberAvatar', {
       method: 'POST',
       body: data,
     })
-      .then((r) => r.json())
-      .then((o) => {
-        console.log(o)
-        if (o.success) {
-          document.querySelector('#myimg').src = o.path
-        } else {
-          alert(o.msg)
-        }
+      .then(res => {
+        console.log(res)
+        fetch("http://localhost:3000/member/memberImg", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: localStorageId,
+            avatarName: imgName
+          })
+        })
+          .then(res => {
+            alert("修改成功！")
+            setAvatar(imgName)
+            return res.json();
+          })
       })
-      // .then((res) => {
-      //   fetch('http://localhost:3000/member/memberImg', {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({
-      //       id: localStorageId,
-      //       imgname: imgName,
-      //     }),
-      //   }).then((res) => {
-      //     console.log(res.json())
-      //     //return res.json();
-      //   })
-      // })
-      .catch((error) => console.log(error))
+      .catch(error => console.log(error));
   }
-  // function editAvatarBtn(e) {
-  //   // 檔案位置
-  //   console.log(avatar);
-  //   // 新增 formData
-  //   const formData = new FormData();
-  //   formData.append('id',localStorageId)
-  //   formData.append('avatar', avatar);
-  //   // 傳送資料
-  //   fetch('http://localhost:3000/member/editMemberData', {
-  //     method: "POST",
-  //     body: formData
-  //   })
-  //     .then((res) => {
-  //       console.log(res.json())
-  //       //return res.json()
-  //     })
-  // }
+
 
   return (
     <>
@@ -224,9 +204,6 @@ function AboutMe() {
                       onChange={editAvatarOnChange}
                     />
                     <img id="myimg" src="" alt="" width="600px"></img>
-                    {/* <button type="button" onClick={editAvatarBtn}>
-                    修改
-                  </button> */}
                   </div>
                 </form>
               </div>
@@ -249,13 +226,6 @@ function AboutMe() {
                     <img src={Favorite} style={{ height: '23px' }} alt="" />
                   </span>
                 </div>
-                <Link
-                  to="#"
-                  className="nav-link edit-avatar"
-                  style={{ padding: '0' }}
-                >
-                  修改大頭貼
-                </Link>
               </div>
             </div>
           </div>
@@ -280,15 +250,15 @@ function AboutMe() {
                 />
                 <div style={{ marginLeft: '15px' }}>
                   <div>
-                    <img src={Box} style={{ height: '16px' }} alt="" />
+                    <img src={Box} style={{ height: '16px' }} alt=""  className="mr-2"/>
                     <span>消費滿3000</span>
                   </div>
                   <div>
-                    <img src={Box} style={{ height: '16px' }} alt="" />
+                    <img src={Box} style={{ height: '16px' }} alt=""  className="mr-2"/>
                     <span>消費(含)三次以上</span>
                   </div>
                   <div>
-                    <img src={Box} style={{ height: '16px' }} alt="" />
+                    <img src={Box} style={{ height: '16px' }} alt=""  className="mr-2"/>
                     <span>完成艸小遊戲</span>
                   </div>
                 </div>
@@ -314,15 +284,15 @@ function AboutMe() {
                 />
                 <div style={{ marginLeft: '15px' }}>
                   <div>
-                    <img src={Box} style={{ height: '16px' }} alt="" />
+                    <img src={Box} style={{ height: '16px' }} alt=""  className="mr-2"/>
                     <span>消費滿5000</span>
                   </div>
                   <div>
-                    <img src={Box} style={{ height: '16px' }} alt="" />
+                    <img src={Box} style={{ height: '16px' }} alt=""  className="mr-2"/>
                     <span>消費(含)五次以上</span>
                   </div>
                   <div>
-                    <img src={Box} style={{ height: '16px' }} alt="" />
+                    <img src={Box} style={{ height: '16px' }} alt=""   className="mr-2"/>
                     <span>完成艸小遊戲</span>
                   </div>
                 </div>

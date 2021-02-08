@@ -129,7 +129,9 @@ function OdrerInfoDetail(props) {
         console.log(row)
         setItemTable(row)
       })
-      .catch((error) => {})
+      .catch((error) => {
+        console.log('error')
+      })
   }
   const nonOrderDetail = (
     <>

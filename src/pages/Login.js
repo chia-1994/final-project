@@ -3,6 +3,8 @@ import { Button, Modal } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import '../member/member.css'
 
+import TWZipCode from '../member/mcomponents/TWZipCode'
+
 function MemberLoginModal(props) {
   //modal的顯示
   const { isAuth, setisAuth, loginModalShow, setLoginModalShow } = props
@@ -11,7 +13,7 @@ function MemberLoginModal(props) {
   const [memberLoginEmail, setMemberLoginEmail] = useState('')
   const [memberLoginPwd, setMemberLoginPwd] = useState('')
 
-  //切換密碼input的type
+  //登入切換密碼input的type
   function pwdCheck() {
     const loginPwd = document.querySelector('#loginPwd')
     if (loginPwd.type === 'password') {
@@ -20,6 +22,18 @@ function MemberLoginModal(props) {
       loginPwd.type = 'password'
     }
   }
+  //註冊切換密碼input的type
+  function registerPwdCheck() {
+    const registerPwd = document.querySelector('#registerPwd')
+    if (registerPwd.type === 'password') {
+      registerPwd.type = 'text'
+    } else {
+      registerPwd.type = 'password'
+    }
+  }
+
+  //email的判斷
+  const email_pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
 
   //按下modal裡的「登入」觸發的function
   function loginInfoSubmit() {
@@ -51,6 +65,7 @@ function MemberLoginModal(props) {
         localStorage.setItem('memberLogInInfo', memberLoginId)
         console.log('row')
         if (localStorage.getItem('memberLogInInfo') !== '') {
+          alert('登入成功！')
           setisAuth(true)
           setLoginModalShow(false)
           props.history.push('/memberroot/aboutme')
@@ -69,7 +84,16 @@ function MemberLoginModal(props) {
   const [registerPwd, setRegisterPwd] = useState('')
   const [registerGender, setRegisterGender] = useState(0)
   const [registerBirth, setRegisterBirth] = useState('')
-  const [registerLocation, setRegisterLocation] = useState(0)
+
+  //地址
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
+  //郵遞區號
+  const [postcode, setPostcode] = useState('')
+
+  const [countryDb, setCountryDb] = useState('')
+  const [townshipDb, setTownshipDb] = useState('')
+  const [addressStringDb, setAddressStringDb] = useState('')
 
   //按下modal裡的「註冊」觸發的function
   function RegisterSubmit() {
@@ -81,15 +105,19 @@ function MemberLoginModal(props) {
       pwd: registerPwd,
       gender: registerGender,
       birth: registerBirth,
-      country: registerLocation,
-      address: 'address',
       level: '1',
       avatar: '',
+      addressCode: postcode,
+      addressString: addressStringDb,
     }
     if (registerGender === 0) {
       registerError.innerHTML = '請選擇性別'
-    } else if (registerLocation === 0) {
+    } else if (postcode === 0) {
       registerError.innerHTML = '請選擇地區'
+    } else if (addressStringDb === '') {
+      registerError.innerHTML = '請填寫地址'
+    } else if (!email_pattern.test(registerEmail)) {
+      registerError.innerHTML = '請填寫正確格式的電子郵件'
     } else {
       fetch('http://localhost:3000/member/register', {
         method: 'POST',
@@ -109,6 +137,7 @@ function MemberLoginModal(props) {
           const a = JSON.stringify({ id: insertId })
           localStorage.setItem('memberLogInInfo', a)
           if (localStorage.getItem('memberLogInInfo') !== '') {
+            alert('註冊成功！')
             setisAuth(true)
             setLoginModalShow(false)
             props.history.push('/memberroot/aboutme')
@@ -120,6 +149,52 @@ function MemberLoginModal(props) {
   //登入或註冊的狀態
   const [loginOrRegister, setLoginOrRegister] = useState(true)
 
+  //modal onHide的function
+  function modalOnHide() {
+    setLoginModalShow(false)
+    setLoginOrRegister(true)
+    setRegisterName('')
+    setRegisterEmail('')
+    setRegisterPwd('')
+    setRegisterGender('')
+    setRegisterBirth('')
+    setMemberLoginEmail('')
+    setMemberLoginPwd('')
+    setCountry(-1)
+    setTownship(-1)
+  }
+
+  //登入登出btn狀態function
+  function loginBtnCtrl() {
+    if (!isAuth) {
+      setLoginModalShow(true)
+    } else {
+      setLoginModalShow(false)
+      setisAuth(false)
+      localStorage.removeItem('memberLogInInfo')
+      props.history.push('')
+    }
+  }
+
+  //快速輸入-LOGIN
+  function fastLoginFunction() {
+    setMemberLoginEmail('bunny@yahoo.com.tw')
+    setMemberLoginPwd('123')
+  }
+
+  //快速輸入-REGISTER
+  function fastRegisterFunction() {
+    setRegisterName('Adrian')
+    setRegisterEmail('adrian@gmail.com')
+    setRegisterPwd('123')
+    setRegisterGender('1')
+    setRegisterBirth('1998-02-14')
+    setCountry(1)
+    setTownship(4)
+    setAddressStringDb('復興南路一段390號2樓')
+    setPostcode(106)
+  }
+
   //登入
   const loginOrRegisterTrue = (
     <>
@@ -128,6 +203,12 @@ function MemberLoginModal(props) {
       </Modal.Header>
       <Modal.Body>
         <form>
+          <div className="form-group">
+            <input type="checkbox" id="fastinput" onClick={fastLoginFunction} />
+            <label className="form-check-label" htmlFor="fastinput">
+              快速輸入
+            </label>
+          </div>
           <div className="form-group">
             <label htmlFor="loginEmail">電子郵件</label>
             <input
@@ -197,6 +278,16 @@ function MemberLoginModal(props) {
       <Modal.Body>
         <form>
           <div className="form-group">
+            <input
+              type="checkbox"
+              id="fastregister"
+              onClick={fastRegisterFunction}
+            />
+            <label className="form-check-label" htmlFor="fastregister">
+              快速輸入
+            </label>
+          </div>
+          <div className="form-group">
             <label htmlFor="registerName">顯示暱稱</label>
             <input
               type="text"
@@ -218,6 +309,7 @@ function MemberLoginModal(props) {
               id="registerEmail"
               aria-describedby="emailHelp"
               placeholder="請輸入電子郵件"
+              value={registerEmail}
               onChange={(e) => {
                 const newRegisterEmail = e.target.value
                 setRegisterEmail(newRegisterEmail)
@@ -242,9 +334,10 @@ function MemberLoginModal(props) {
             <input
               type="checkbox"
               className="form-check-input"
-              id="registerpwdCheck"
+              id="registerpwdCheckInput"
+              onClick={registerPwdCheck}
             />
-            <label className="form-check-label" htmlFor="registerpwdCheck">
+            <label className="form-check-label" htmlFor="registerpwdCheckInput">
               顯示密碼
             </label>
             <small
@@ -286,24 +379,21 @@ function MemberLoginModal(props) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="registerLocation">所在地</label>
-            <select
-              className="form-con"
-              id="registerLocation"
-              value={registerLocation}
-              onChange={(e) => {
-                const newRegisterLocation = e.target.value
-                if (newRegisterLocation !== 0) {
-                  setRegisterLocation(newRegisterLocation)
-                }
-              }}
-            >
-              <option value="0">請選擇</option>
-              <option value="TW">TW 台灣</option>
-              <option value="HK">HK 香港</option>
-              <option value="US">US 美國</option>
-              <option value="JP">JP 日本</option>
-            </select>
+            <label htmlFor="address1">地址</label>
+            <TWZipCode
+              country={country}
+              setCountry={setCountry}
+              township={township}
+              setTownship={setTownship}
+              postcode={postcode}
+              setPostcode={setPostcode}
+              countryDb={countryDb}
+              setCountryDb={setCountryDb}
+              townshipDb={townshipDb}
+              setTownshipDb={setTownshipDb}
+              addressStringDb={addressStringDb}
+              setAddressStringDb={setAddressStringDb}
+            />
           </div>
           <p id="registerError"></p>
         </form>
@@ -330,16 +420,19 @@ function MemberLoginModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
       show={loginModalShow}
-      onHide={() => setLoginModalShow(false)}
+      onHide={modalOnHide}
     >
       {loginOrRegister ? loginOrRegisterTrue : loginOrRegisterFalse}
     </Modal>
   )
 
   const loginBtn = (
-    <button className="login-btn" onClick={() => setLoginModalShow(true)}>
+    <button
+      className="login-btn"
+      onClick={loginBtnCtrl}
+      style={{ width: '100%' }}
+    >
       {isAuth ? '登出' : '登入'}
-      {/* 登入 */}
     </button>
   )
 

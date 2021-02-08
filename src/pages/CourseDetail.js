@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
-
 import ControlledCarousel from '../components/course/ControlledCarousel'
 import TopCourseDetail from '../components/course/TopCourseDetail'
 import BodyCourseDetail from '../components/course/BodyCourseDetail'
-
+import React, { useState, useEffect } from 'react'
 import '../CourseDetail.css'
 
 function CourseDetail() {
@@ -13,13 +11,15 @@ function CourseDetail() {
       method: 'get',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
     const data = await res.json()
 
     setMydata(data)
+    console.log(data)
   }
+
   useEffect(() => {
     getData()
   }, [])

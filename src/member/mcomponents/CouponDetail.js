@@ -35,7 +35,9 @@ function Coupon(props) {
               <button
                 className="order-btn"
                 style={{ float: 'right' }}
-                onClick={() => {}}
+                onClick={() => {
+                  console.log('error')
+                }}
               >
                 複製
               </button>

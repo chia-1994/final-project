@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import './css/.css'
+import React from 'react'
+import './css/articleAll.css'
 import Featured from './forMain/Featured'
 import DetailPage from './forMain/DetailPage'
+import { Link } from 'react-router-dom'
 
 function DetailMain() {
   return (
@@ -21,38 +22,36 @@ function DetailMain() {
           </div>
         </div>
         <div className="productLink">
-          <img src="https://picsum.photos/id/280/320/320" alt="" />
+          <Link to="/ProductList/13">
+            <img src="./IMG/hot01.jpg" alt="" />
+          </Link>
           <div className="coupon">
-            <div>戶外體驗</div>
-            <div>限額</div>
+            <div>限時優惠</div>
+            <div>熱銷</div>
           </div>
-          <h3>海灘守護-第三期</h3>
-          <p>
-            它是集體隨時指揮進來並非回麼嘉義不得不，前 進線上打開臨時驚訝......
-          </p>
+          <h3>奇蹟辣木油</h3>
+          <p>奇蹟辣木油，只有一個成分的油保養經典</p>
           <div className="productLine"></div>
-          <p className="productTime">2020.11.20</p>
+          <p className="productTime">30 ml</p>
           <div className="productLine"></div>
           <div className="productPrice">
-            <h3>$1280</h3>
+            <h3>$820</h3>
             <img src="./IMG/heart.svg" alt="" />
           </div>
         </div>
         <div className="productLink">
-          <img src="https://picsum.photos/id/277/320/320" alt="" />
+          <img src="./IMG/wash.jpg" alt="" />
           <div className="coupon">
-            <div>戶外體驗</div>
-            <div>限額</div>
+            <div>買一送一</div>
+            <div>限量</div>
           </div>
-          <h3>海灘守護-第三期</h3>
-          <p>
-            它是集體隨時指揮進來並非回麼嘉義不得不，前 進線上打開臨時驚訝......
-          </p>
+          <h3>活萃洗面乳</h3>
+          <p>挑戰這輩子陪你最久的溫和洗面乳</p>
           <div className="productLine"></div>
-          <p className="productTime">2020.11.20</p>
+          <p className="productTime">100 ml</p>
           <div className="productLine"></div>
           <div className="productPrice">
-            <h3>$1280</h3>
+            <h3>$420</h3>
             <img src="./IMG/heart.svg" alt="" />
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../member.css'
+import { Link } from 'react-router-dom'
 
 function OrderItemTable(props) {
   const {
@@ -8,6 +9,7 @@ function OrderItemTable(props) {
     Order_Detail_amount,
     Order_Detail_price,
   } = props
+
   return (
     <>
       <tr>
@@ -20,9 +22,9 @@ function OrderItemTable(props) {
         <td>{Order_Detail_amount}</td>
         <td>{Order_Detail_price}</td>
         <td>
-          <button className="order-btn" href="">
-            查看商品詳細頁
-          </button>
+          <Link to="/ProductList/25">
+            <button className="order-btn">查看商品詳細頁</button>
+          </Link>
         </td>
       </tr>
     </>

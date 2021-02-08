@@ -8,11 +8,10 @@ function Product() {
     <>
       <div class="tom-product">
         <div class="tom-product-main">
-          <Big imgUrl="http://localhost:3001/img/2.jpg" />
-          <img src="http://localhost:3001/img/2.jpg" alt="" />
-          <img src="http://localhost:3001/img/3.jpg" alt="" />
-          <img src="http://localhost:3001/img/4.jpg" alt="" />
-          <img src="http://localhost:3001/img/5.jpg" alt="" />
+          <Big imgUrl="http://localhost:3001/img/hot00.jpg" />
+          <Big imgUrl="http://localhost:3001/img/hot01.jpg" />
+          <Big imgUrl="http://localhost:3001/img/hot04.jpg" />
+          <Big imgUrl="http://localhost:3001/img/top6.jpg" />
         </div>
         <SmallProduct />
       </div>

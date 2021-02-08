@@ -16,7 +16,7 @@ function Search(props) {
               getData()
             }}
           >
-            <img src="http://localhost:3001/PNG/search.png" alt="" />{' '}
+            <img src="http://localhost:3001/img/search.svg" alt="" />{' '}
           </span>
           <input
             type="text"

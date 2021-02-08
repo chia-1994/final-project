@@ -28,12 +28,16 @@ function SellerSearch(props) {
         />
 
         <select onChange={onChange} value={Option} class="shop_list-order">
-          <option value="0">未出貨</option>
-          <option value="1">已出貨</option>
+          <option value="0">顯示全部</option>
+          <option value="1">尚未付款</option>
+          <option value="2">處理中</option>
+          <option value="3">待收貨</option>
+          <option value="4">已完成</option>
+          <option value="5">已取消</option>
         </select>
         <select onChange={onChange} value={Option} class="shop_list-order">
-          <option value="2">未出貨</option>
-          <option value="3">已出貨</option>
+          <option value="6">未出貨</option>
+          <option value="7">已出貨</option>
         </select>
       </div>
     </Container>

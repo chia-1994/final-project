@@ -9,23 +9,13 @@ function MenuUI() {
           exact
           activeClassName="active"
           className="nav-link"
-          to="/seller/mainpage"
+          to="/mainpage"
         >
           <i className="fas fa-home text-white ml-2 mr-4"></i>
           <span className="hidden-sm-down text-white">首頁</span>
         </NavLink>
       </li>
 
-      <li className="nav-item p-3 mb-2 sidebar-link">
-        <NavLink
-          activeClassName="active"
-          className="nav-link"
-          to="/seller/coupon"
-        >
-          <i className="fas fa-tags mr-3 text-white"></i>
-          <span className="hidden-sm-down text-white">優惠券</span>
-        </NavLink>
-      </li>
       <li className="nav-item p-3 mb-2 sidebar-link">
         <NavLink activeClassName="active" className="nav-link" to="/Class">
           <i className="fas fa-chalkboard-teacher mr-3 text-white"></i>
@@ -38,24 +28,36 @@ function MenuUI() {
           <span className="hidden-sm-down text-white">訂單</span>
         </NavLink>
       </li>
-      {/* <li className="nav-item text-white p-3 mb-2 sidebar-link">
+
+      <li className="nav-item p-3 mb-2 sidebar-link">
         <NavLink
           activeClassName="active"
           className="nav-link"
-          to="/seller/managecustomer"
+          to="/ProductData"
         >
-          <i className="fab fa-facebook-messenger text-white mr-3"></i>
-          <span className="hidden-sm-down text-white">顧客管理</span>
-        </NavLink>
-      </li> */}
-      <li className="nav-item text-white p-3 mb-2 sidebar-link">
-        <NavLink
-          activeClassName="active"
-          className="nav-link"
-          to="/seller/itemmanager"
-        >
-          <i class="fas fa-store-alt text-white mr-3"></i>
+          <i className="fas fa-tags mr-3 text-white"></i>
           <span className="hidden-sm-down text-white">商品管理</span>
+        </NavLink>
+      </li>
+
+      <li className="nav-item text-white p-3 mb-2 sidebar-link">
+        <NavLink activeClassName="active" className="nav-link" to="/ProductAdd">
+          <i class="fas fa-store-alt text-white mr-3"></i>
+          <span className="hidden-sm-down text-white">商品上架</span>
+        </NavLink>
+      </li>
+
+      <li className="nav-item p-3 mb-2 sidebar-link">
+        <NavLink activeClassName="active" className="nav-link" to="/ClassData">
+          <i className="fas fa-tags mr-3 text-white"></i>
+          <span className="hidden-sm-down text-white">課程管理</span>
+        </NavLink>
+      </li>
+
+      <li className="nav-item p-3 mb-2 sidebar-link">
+        <NavLink activeClassName="active" className="nav-link" to="/ClassAdd">
+          <i className="fas fa-tags mr-3 text-white"></i>
+          <span className="hidden-sm-down text-white">課程上架</span>
         </NavLink>
       </li>
     </ul>

@@ -10,9 +10,8 @@ function BodyCourseDetail(props) {
   const myData = id && data && data[id - 1]
   return myData ? (
     <>
-      <div class="top-250"></div>
       <div class="top-page-green">
-        <div class="block">
+        <div class="box">
           <div class="box-left">
             <h4 class="box-left-h4">{myData.text}</h4>
           </div>
@@ -77,12 +76,19 @@ function BodyCourseDetail(props) {
             <h4 class="down-right-in-h4A">活動人數：{myData.act_members}人</h4>
             <h4 class="down-right-in-h4A">活動費用：{myData.act_price}</h4>
             <button class="up-buttonA">
-              <h3 class="up-button-h3">我要報名</h3>
+              <h3
+                class="up-button-h3"
+                onClick={() => {
+                  history.push(`/CourseSubmit/form`)
+                }}
+              >
+                我要報名
+              </h3>
             </button>
             <button
               class="up-buttonA"
               onClick={() => {
-                history.push(`/CourseList/}`)
+                history.push(`/CourseList`)
               }}
             >
               <h3 class="up-button-h3">看更多活動</h3>

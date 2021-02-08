@@ -37,7 +37,7 @@ function OrderDone(props) {
     Order_State: 2,
     Order_code: '20043UUSCCKK',
     Member_id: 1,
-    Member_name: 'Bunny',
+    Menber_name: 'Bunny',
     Order_name: 'Bunny',
     Order_mobile: '0912345678',
     Order_deliver_type: 'e',
@@ -45,43 +45,30 @@ function OrderDone(props) {
     Order_package_id: 'SALT00002',
     Order_address: '台北市大安區忠孝東路四段45號',
     Order_pay: 'e20',
-    Order_CreatedTime: new Date(),
+    Order_CreatedTime: null,
     Order_Amount: amount,
     Order_TotalPrice: price,
   }
-
   //寫入出現問題，優先解決
-  // const addOrder = async () => {
-  //   await fetch('http://localhost:3000/api/order', {
-  //     method: 'POST',
-  //     body: JSON.stringify(order),
-  //     headers: new Headers({
-  //       Accept: 'applications/json',
-  //       'Content-Type': 'applications/json',
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => console.log(result))
-  //     .catch((e) => console.log('ERROR!'))
-  // }
+  const addOrder = async (req, res) => {
+    await fetch('http://localhost:3000/api/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'applications/json',
+      },
+      body: encodeURI(JSON.stringify(order)),
+    })
+    await ((res) => {
+      res.json()
+    })
+    await ((result) => {
+      console.log(result)
+    })
+  }
 
-  //useEffect(() => {
-  // const addOrder = async () => {
-  //   await fetch('http://localhost:3000/api/order', {
-  //     method: 'POST',
-  //     body: JSON.stringify(order),
-  //     headers: new Headers({
-  //       Accept: 'applications/json',
-  //       'Content-Type': 'applications/json',
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => console.log(result))
-  //     .catch((e) => console.log('ERROR!'))
-  // }
-
+  // useEffect(() => {
   //   addOrder()
-  // }, [])
+  // })
 
   return (
     <>

@@ -9,12 +9,10 @@ import Footers from '../Footers'
 function SellerBack(props) {
   console.log(props)
   return (
-    <React.Fragment>
-      <Router>
-        <Containers />
-        <Footers />
-      </Router>
-    </React.Fragment>
+    <Router>
+      <Containers />
+      <Footers />
+    </Router>
   )
 }
 

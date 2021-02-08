@@ -10,7 +10,7 @@ function BodyCourse(props) {
     data.map((v, i) => {
       return (
         <div class="list-down" key={i}>
-          <div class="down-left">
+          <div class="list-down-left">
             <img
               src={'http://localhost:3001/IMG/CourseList/' + v.pic_big}
               // src={v.img}
@@ -19,19 +19,17 @@ function BodyCourse(props) {
             />
           </div>
 
-          <div class="down-right">
-            <div class="down-right-in">
-              <h3>{v.title}</h3>
-              <h4 class="down-right-in-h4">{v.sub_title}</h4>
-              <button
-                class="up-button"
-                onClick={() => {
-                  history.push(`/CourseDetail/${v.sid}`)
-                }}
-              >
-                <h3 class="up-button-h3">活動介紹</h3>
-              </button>
-            </div>
+          <div class="list-down-right">
+            <h3 class="down-right-h3">{v.title}</h3>
+            <h4 class="down-right-h4">{v.sub_title}</h4>
+            <button
+              class="up-button"
+              onClick={() => {
+                history.push(`/CourseDetail/${v.sid}`)
+              }}
+            >
+              <h3 class="up-button-h3">活動介紹</h3>
+            </button>
           </div>
         </div>
       )

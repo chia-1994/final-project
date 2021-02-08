@@ -36,7 +36,9 @@ function Order() {
           console.log(row)
           setOrderRows(row)
         })
-        .catch((error) => {})
+        .catch((error) => {
+          console.log('error')
+        })
     }
   }, [])
 

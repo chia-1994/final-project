@@ -14,15 +14,17 @@ import MemberHome from './pages/MemberHome'
 import MemberRoot from './pages/MemberRoot'
 //article
 import ArticleList from './pages/ArticleList'
+import ArticleDetail from './pages/ArticleDetail'
 //product
 import ProductList from './pages/ProductList'
 import ShopList from './pages/ShopList'
-import ProductData from './pages/ProductData'
-import ProductAdd from './pages/ProductAdd'
-import ProductEdit from './pages/ProductEdit'
+// import ProductData from './components/seller_back/pages/ProductData'
+// import ProductAdd from './components/seller_back/pages/ProductAdd'
+// import ProductEdit from './components/seller_back/pages/ProductEdit'
 //活動
 import CourseList from './pages/CourseList'
 import CourseDetail from './pages/CourseDetail'
+import CourseSubmit from './pages/CourseSubmit'
 //購物車
 import Cart from './pages/Cart'
 import PaymentInfo from './pages/PaymentInfo'
@@ -34,15 +36,25 @@ import SellerBack from './components/seller_back/pages/SellerBack'
 
 function App() {
   //設定登入登出的狀態
-  const [isAuth, setisAuth] = useState(false)
+  const [isAuth, setisAuth] = useState()
 
-  if (isAuth === false) {
-    localStorage.removeItem('memberLogInInfo')
-  }
+  useEffect(() => {
+    const memberAuth = localStorage.getItem('memberLogInInfo')
+    if (memberAuth === null) {
+      setisAuth(false)
+    } else {
+      setisAuth(true)
+    }
+  }, [])
 
   return (
-    <>
-      <Router>
+    <Router>
+      <>
+        <Switch>
+          <Route path="/SellerBack">
+            <SellerBack />
+          </Route>
+        </Switch>
         <Navbar isAuth={isAuth} setisAuth={setisAuth} />
         <ScrollToTop>
           <Switch>
@@ -50,15 +62,15 @@ function App() {
               <Home />
             </Route>
             <Route path="/product">
-              <Product />
+              <Product isAuth={isAuth} />
             </Route>
             <Route path="/ProductList">
-              <ProductList />
+              <ProductList isAuth={isAuth} />
             </Route>
             <Route path="/ShopList/:category?/:sid?/">
-              <ShopList />
+              <ShopList isAuth={isAuth} />
             </Route>
-            <Route path="/ProductData/:sid?">
+            {/* <Route path="/ProductData/:sid?">
               <ProductData />
             </Route>
             <Route path="/ProductAdd">
@@ -66,15 +78,21 @@ function App() {
             </Route>
             <Route path="/ProductEdit/:sid?">
               <ProductEdit />
-            </Route>
+            </Route> */}
             <Route path="/articleList">
               <ArticleList />
+            </Route>
+            <Route path="/ArticleDetail">
+              <ArticleDetail />
             </Route>
             <Route path="/CourseList">
               <CourseList />
             </Route>
             <Route path="/CourseDetail/:id?">
               <CourseDetail />
+            </Route>
+            <Route path="/CourseSubmit/form">
+              <CourseSubmit />
             </Route>
             <Route path="/cart">
               <Cart />
@@ -89,21 +107,18 @@ function App() {
               <OrderDone />
             </Route>
             <MemberMain>
-              <Route path="/">
+              {/* <Route path="/">
                 <MemberHome />
-              </Route>
+              </Route> */}
               <Route path="/memberroot">
                 <MemberRoot />
               </Route>
             </MemberMain>
           </Switch>
-          <Route path="/SellerBack">
-            <SellerBack />
-          </Route>
         </ScrollToTop>
         <Footer />
-      </Router>
-    </>
+      </>
+    </Router>
   )
 }
 
